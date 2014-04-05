@@ -1,17 +1,25 @@
 {
-  "name": "application-name",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "express": "~3.4.8",
-    "static-favicon": "~1.0.0",
-    "morgan": "~1.0.0",
-    "cookie-parser": "~1.0.1",
-    "body-parser": "~1.0.0",
-    "debug": "~0.7.4",
-    "jade": "~1.3.0"
-  }
+    "version": "0.0.1",
+    "private": true,
+    "name": "dungeon-butler",
+    "description": "Table top RPG character management",
+    "repository": "https://github.com/mbstraus/dungeon-butler",
+    "devDependencies": {
+        "bower": "^1.3.1"
+    },
+    "dependencies": {
+        "express": "~3.4.8",
+        "static-favicon": "~1.0.0",
+        "morgan": "~1.0.0",
+        "cookie-parser": "~1.0.1",
+        "body-parser": "~1.0.0",
+        "debug": "~0.7.4",
+        "jade": "~1.3.0",
+        "mongodb": "*",
+        "monk": "*"
+    },
+    "scripts": {
+        "postinstall": "bower install",
+        "start": "node ./bin/www"
+    }
 }

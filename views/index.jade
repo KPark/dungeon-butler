@@ -1,4 +1,16 @@
 extends layout
 
 block content
-    h1= "Hello World"
+    script(type="text/javascript" src="javascripts/controllers/loginController.js")
+    .loginWindow(ng-app='dungeon-butler')
+        div#existingForm(ng-controller='login-controller')
+            label(for = 'usernameInput') Username
+            br
+            input#usernameInput(type="text", ng-model="usernameInput")
+            br
+            label(for = 'passwordInput') Password
+            br
+            input#passwordInput(type="password", ng-model="passwordInput")
+            br
+            button(ng-click="login()") Login
+            h1 Welcome {{loggedInUser}}
