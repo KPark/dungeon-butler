@@ -10,7 +10,13 @@ dungeonButlerApp.controller('login-controller', ['$scope', '$http',
             var data = { "username": $scope.usernameInput, "password": $scope.passwordInput }
             $http.post('/login', data).success(function (data) {
                 $scope.loggedInUser = data.username;
-            })
+            });
+        };
+        $scope.register = function () {
+            var data = { "username": $scope.usernameInput, "password": $scope.passwordInput }
+            $http.post('/register', data).success(function (data) {
+                $scope.loggedInUser = data.username;
+            });
         };
         $scope.usernameInput = "";
         $scope.passwordInput = "";

@@ -3,14 +3,17 @@ extends layout
 block content
     script(type="text/javascript" src="javascripts/controllers/loginController.js")
     .loginWindow(ng-app='dungeon-butler')
-        div#existingForm(ng-controller='login-controller')
-            label(for = 'usernameInput') Username
-            br
-            input#usernameInput(type="text", ng-model="usernameInput")
-            br
-            label(for = 'passwordInput') Password
-            br
-            input#passwordInput(type="password", ng-model="passwordInput")
-            br
-            button(ng-click="login()") Login
+        div#existingForm(ng-controller='login-controller',class='loginForm',style='display:table;')
+            div(style="display:table-row; vertical-align: middle;")
+                label(for = 'usernameInput',style='display: table-cell;') Username
+                input#usernameInput(type="text", ng-model="usernameInput", style="display: table-cell")
+            div(style="display:table-row")
+                label(for = "passwordInput", style="display: table-cell;") Password
+                input#passwordInput(type="password",ng-model="passwordInput",style='display: table-cell;')
+            div(style="display:table-row")
+                div(style="display: table-cell;")
+                    &nbsp;
+                div(style="display: table-cell; text-align: right;")
+                    button(ng-click="register()",style="border-radius: 1em;") Register
+                    button(ng-click="login()",style='border-radius: 1em;') Login
             h1 Welcome {{loggedInUser}}

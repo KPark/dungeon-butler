@@ -1,8 +1,23 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-family: "Lucida Console", Monaco, monospace;
 }
 
 a {
   color: #00B7FF;
+}
+
+.loginForm {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 10em;
+    height: 5em;
+    border-radius: 3em;
+    border: 0.1em solid #a1a1a1;
+    padding: 2em;
+    background: linear-gradient(greenyellow, limegreen);
 }
