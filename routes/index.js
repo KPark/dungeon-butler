@@ -1,7 +1,7 @@
 var passwordHash = require('password-hash');
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Dungeon Butler' });
 };
 
 exports.login = function(db) {
