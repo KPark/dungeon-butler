@@ -4,6 +4,10 @@ exports.index = function(req, res){
   res.render('index', { title: 'Dungeon Butler' });
 };
 
+exports.loginForm = function(req, res) {
+    res.render('login', { title: 'Dungeon Butler' });
+}
+
 exports.login = function(db) {
     return (function(req, res) {
         var userName = req.body.username;

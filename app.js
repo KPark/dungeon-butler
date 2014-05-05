@@ -25,10 +25,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'bower_components/angular')));
+app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(app.router);
 
 app.get('/', routes.index);
+app.get('/loginForm', routes.loginForm);
 app.post('/login', routes.login(db));
 app.post('/register', routes.register(db));
 
@@ -37,6 +38,7 @@ app.get('/characters', characters.characters);
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
+    console.log(req.path);
     err.status = 404;
     next(err);
 });

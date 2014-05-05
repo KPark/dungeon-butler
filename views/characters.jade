@@ -1,3 +1,8 @@
-h2 Character Templates
-div(ng-repeat="t in templates")
-    div {{t.characterName}}
+extends layout
+
+block content
+    div(ng-controller="character-controller")
+        h2 Character Templates
+        div(ng-repeat="t in characterTemplates")
+            div Hello World!
+            div {{t.characterName}}

@@ -1,0 +1,16 @@
+div(ng-controller="login-controller")
+    table.existingForm(ng-show="loggedInUser.userName == 'No User'",class='loginForm')
+        tr
+            td
+                label(for = 'usernameInput',style='display: table-cell;') Username
+            td
+                input#usernameInput(type="text", ng-model="usernameInput", style="display: table-cell")
+        tr
+            td
+                label(for = "passwordInput", style="display: table-cell;") Password
+            td
+                input#passwordInput(type="password",ng-model="passwordInput",style='display: table-cell;')
+        tr
+            td(colspan="2" style="text-align: right;")
+                button(ng-click="register()",style="border-radius: 1em;") Register
+                button(ng-click="login()",style='border-radius: 1em;') Login
