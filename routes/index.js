@@ -12,19 +12,38 @@ exports.login = function(db) {
     return (function(req, res) {
         var userName = req.body.username;
         var password = req.body.password;
+        var sessionId = req.sessionID;
+
         var hashedPassword = passwordHash.generate(req.body.password);
         var collection = db.get('users');
-        collection.find({'username': userName}, {}, function(e, docs) {
-            if (docs.length === 0) {
-                docs = [ { "username": "Invalid Username / Password" } ];
-            } else {
-                var isPasswordValid = passwordHash.verify(password, docs[0].password);
-                if (!isPasswordValid) {
-                    docs = [ { "username": "Invalid Username / Password" } ];
+        if (userName == null) {
+            collection.find({'sessionId': sessionId}, {}, function(e, docs) {
+                if (docs.length !== 0) {
+                    res.send(docs[0]);
                 }
-            }
-            res.send(docs[0]);
-        });
+            });
+        } else {
+            collection.find({'username': userName}, {}, function (e, docs) {
+                if (docs.length === 0) {
+                    docs = [
+                        { "username": "Invalid Username / Password" }
+                    ];
+                } else {
+                    var isPasswordValid = passwordHash.verify(password, docs[0].password);
+                    if (!isPasswordValid) {
+                        docs = [
+                            { "username": "Invalid Username / Password" }
+                        ];
+                    } else {
+                        // Storing the active session ID on log-in so that it can be used to automatically log in the
+                        // user at a later date.
+                        collection.update({_id: docs[0]._id}, {$set: { sessionId: sessionId }});
+                        docs[0].sessionId = sessionId;
+                    }
+                }
+                res.send(docs[0]);
+            });
+        }
     });
 }
 
