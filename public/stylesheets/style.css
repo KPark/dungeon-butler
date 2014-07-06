@@ -3,6 +3,17 @@ body {
     font-family: "Lucida Console", Monaco, monospace;
 }
 
+@font-face {
+    font-family: 'TheKidsMraker';
+    src: url('http://localhost:3000/fonts/The_Kids_Mraker.ttf');
+}
+
+h2 {
+    font-family: 'TheKidsMraker';
+    font-size: 2em;
+    color: red;
+}
+
 a {
   color: #00B7FF;
 }
@@ -20,4 +31,19 @@ a {
     border: 0.1em solid #a1a1a1;
     padding: 2em;
     background: linear-gradient(greenyellow, limegreen);
+}
+
+.header_button {
+    transition: color 1s, background 1s;
+    font-family: 'TheKidsMraker';
+    font-size: 1em;
+    margin-left: 0.25em;
+    border-radius: 0.3em;
+    background: greenyellow;
+    color: maroon;
+}
+
+.header_button:hover {
+    color: crimson;
+    background: limegreen;
 }

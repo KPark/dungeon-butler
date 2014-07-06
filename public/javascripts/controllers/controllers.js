@@ -58,7 +58,16 @@ dungeonButlerControllers.controller('login-controller', ['$scope', '$rootScope',
 dungeonButlerControllers.controller('character-controller', ['$scope', '$rootScope', '$http',
         function ($scope, $rootScope, $http) {
             $scope.characterTemplates = [
-                { characterName: "Bob" }
+                {
+                    firstName: "Gimli",
+                    lastName: "Son of Gloin",
+                    hp: "24"
+                },
+                {
+                    firstName: "Harry",
+                    lastName: "Potter",
+                    hp: "14"
+                }
             ]
         }]
 );
