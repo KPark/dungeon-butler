@@ -3,6 +3,6 @@ extends layout
 block content
     div(ng-controller="character-controller", style="width: 50%")
         h2(style="text-align: center") Character Templates
-            button(class="header_button") + New
+            button(class="header_button", ng-click="newCharacter()") + New
         div(ng-repeat="t in characterTemplates" style="border: 3px solid black; width: 45%; display: inline-block;")
             h2(style="margin-left: 10%;") {{t.firstName}} {{t.lastName}}

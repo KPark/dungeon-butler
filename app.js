@@ -7,7 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes');
-var characters = require('./routes/characters')
+var characters = require('./routes/characters');
+var characterCreate = require('./routes/characterCreate');
 
 var mongo = require('mongodb');
 var monk = require('monk');
@@ -32,8 +33,10 @@ app.get('/', routes.index);
 app.get('/loginForm', routes.loginForm);
 app.post('/login', routes.login(db));
 app.post('/register', routes.register(db));
+app.post('/getRaces', characterCreate.getRaces(db));
 
 app.get('/characters', characters.characters);
+app.get('/characterCreate', characterCreate.characterCreate);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,45 @@
+extends layout
+
+block content
+    div(ng-controller="character-controller")
+        div(ng-repeat="t in races")
+            table
+                tr
+                    td Name
+                    td {{t.name}}
+                tr
+                    td Average Height
+                    td {{t.averageHeight}}
+                tr
+                    td Average Weight
+                    td {{t.averageWeight}}
+                tr
+                    td Size
+                    td {{t.size}}
+                tr
+                    td Speed
+                    td {{t.speed}}
+                tr
+                    td Vision
+                    td {{t.vision}}
+                tr
+                    td Languages
+                    td
+                        div(ng-repeat="language in t.languages")
+                            span {{language.name}}
+                            br
+                tr
+                    td Skills
+                    td
+                        div(ng-repeat="skill in t.skills")
+                            span {{skill.name}} - {{skill.bonus}}
+                            br
+                tr
+                    td Ability Bonuses
+                    td
+                        div(ng-repeat="ability in t.abilityScores") {{ability}}
+                tr
+                    td Traits
+                    td
+                        div(ng-repeat="trait in t.traits")
+                            span {{trait.name}} - {{trait.description}}

@@ -19,6 +19,10 @@ dungeonButlerApp.config(['$routeProvider',
                 templateUrl: 'loginForm',
                 controller: 'login-controller'
             })
+            .when('/characterCreate', {
+                templateUrl: 'characterCreate',
+                controller: 'character-controller'
+            })
             .otherwise({
                 redirectTo: '/loginForm'
             });
@@ -55,8 +59,14 @@ dungeonButlerControllers.controller('login-controller', ['$scope', '$rootScope',
         }]
 );
 
-dungeonButlerControllers.controller('character-controller', ['$scope', '$rootScope', '$http',
-        function ($scope, $rootScope, $http) {
+dungeonButlerControllers.controller('character-controller', ['$scope', '$rootScope', '$http', '$location', '$cookies',
+        function ($scope, $rootScope, $http, $location, $cookies) {
+            $scope.newCharacter = function () {
+                $http.post('/getRaces', { "ruleSet": "dndv4"}).success(function (data) {
+                    $rootScope.races = data;
+                    $location.path('/characterCreate');
+                })
+            }
             $scope.characterTemplates = [
                 {
                     firstName: "Gimli",
@@ -69,5 +79,6 @@ dungeonButlerControllers.controller('character-controller', ['$scope', '$rootSco
                     hp: "14"
                 }
             ]
-        }]
+        }
+    ]
 );

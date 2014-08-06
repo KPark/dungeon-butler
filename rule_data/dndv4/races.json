@@ -1,0 +1,281 @@
+
+    {
+        "name": "Dragonborn",
+        "averageHeight": "6`2 - 6`8",
+        "averageWeight": "220 - 320 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "normal",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Draconic" }
+        ],
+        "abilityScores": {
+            "str": 2,
+            "cha": 2
+        },
+        "skillBonus": [
+            { "name": "History", "bonus": 2 },
+            { "name": "Intimidate", "bonus": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Dragonborn Fury",
+                "description": "When you're bloodied, you gain a +1 racial bonus to attack rolls."
+            },
+            {
+                "name": "Draconic Heritage",
+                "description": "Your healing surge value is equal to one-quarter of your maximum hit points + your constitution modifier."
+            },
+            {
+                "name": "Dragon Breath",
+                "description": "You can use dragon breath as an encounter power.",
+                "power": "Dragon Breath"
+            }
+        ]
+    }
+    {
+        "name": "Dwarf",
+        "averageHeight": "4`3 - 4`9",
+        "averageWeight": "160 - 220 lbs",
+        "size": "Medium",
+        "speed": 5,
+        "vision": "low-light",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Dwarven" }
+        ],
+        "abilityScores": {
+            "con": 2,
+            "wis": 2
+        },
+        "skillBonus": [
+            { "name": "Dungeoneering", "bonus": 2 },
+            { "name": "Endurance", "bonus": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Cast-Iron Stomach",
+                "description": "+5 racial bonus to saving throws against poison."
+            },
+            {
+                "name": "Dwarven Resiliance",
+                "description": "You can use your second wind as a minor action instead of a standard action."
+            },
+            {
+                "name": "Dwarven Weapon Proficiency",
+                "description": "You gain proficiency with the throwing hammer and the warhammer."
+            },
+            {
+                "name": "Encumbered Speed",
+                "description": "You move at your normal speed even when it would normally be reduced by armor or heavy load.  Other effects that limit speed (such as difficult terrain or magical effects) affect you normally."
+            },
+            {
+                "name": "Stand Your Ground",
+                "description": "When an effect forces you to move—through a pull, a push, or a slide—you can move 1 square less than the effect specifies. This means an effect that normally pulls, pushes, or slides a target 1 square does not force you to move unless you want to.  In addition, when an attack would knock you prone, you can immediately make a saving throw to avoid falling prone."
+            }
+        ]
+    }
+    {
+        "name": "Eladrin",
+        "averageHeight": "5`5 - 6`1",
+        "averageWeight": "130 - 180 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "low-light",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Elven" }
+        ],
+        "abilityScores": {
+            "dex": 2,
+            "int": 2
+        },
+        "skillBonus": [
+            { "name": "Arcana", "bonus": 2 },
+            { "name": "History", "bonus": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Eladrin Education",
+                "description": "You gain training in one additional skill."
+            },
+            {
+                "name": "Eladrin Weapon Proficiency",
+                "description": "You gain proficiency with the longsword."
+            },
+            {
+                "name": "Eladrin Will",
+                "description": "You gain a +1 racial bonus to your Will defense.  In addition, you gain a +5 racial bonus to saving throws against charm effects."
+            },
+            {
+                "name": "Fey Origin",
+                "description": "Your ancestors were native to the Feywild, so you are considered a fey creature for the purpose of effects that relate to creature origin."
+            },
+            {
+                "name": "Trance",
+                "description": "Rather than sleep, eladrin enter a meditative state known as trance. You need to spend 4 hours in this state to gain the same benefits other races gain from taking a 6-hour extended rest. While in a trance, you are fully aware of your surroundings and notice approaching enemies and other events as normal."
+            },
+            {
+                "name": "Fey Step",
+                "description": "You can use fey step as an encounter power.",
+                "power": "Fey Step"
+            }
+        ]
+    }
+    {
+        "name": "Elf",
+        "averageHeight": "5`4 - 6`0",
+        "averageWeight": "130 - 170 lbs",
+        "size": "Medium",
+        "speed": 7,
+        "vision": "low-light",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Elven" }
+        ],
+        "abilityScores": {
+            "dex": 2,
+            "wis": 2
+        },
+        "skillBonus": [
+            { "name": "Nature", "bonus": 2 },
+            { "name": "Perception", "bonus": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Elven Weapon Proficiency",
+                "description": "You gain proficiency with the longbow and the shortbow."
+            },
+            {
+                "name": "Fey Origin",
+                "description": "Your ancestors were native to the Feywild, so you are considered a fey creature for the purpose of effects that relate to creature origin."
+            },
+            {
+                "name": "Group Awareness",
+                "description": "You grant non-elf allies within 5 squares of you a +1 racial bonus to Perception checks."
+            },
+            {
+                "name": "Wild Step",
+                "description": "You ignore difficult terrain when you shift (even if you have a power that allows you to shift multiple squares)."
+            },
+            {
+                "name": "Elven Accuracy",
+                "description": "You can use elven accuracy as an encounter power.",
+                "power": "Elven Accuracy"
+            }
+        ]
+    }
+    {
+        "name": "Half-Elf",
+        "averageHeight": "5`5 - 6`2",
+        "averageWeight": "130 - 190 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "low-light",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Elven" },
+            { "name": "Choice" }
+        ],
+        "abilityScores": {
+            "con": 2,
+            "cha": 2
+        },
+        "skillBonus": [
+            { "name": "Diplomacy", "bonus": 2 },
+            { "name": "Insight", "bonus": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Dilettante",
+                "description": "At 1st level, you choose an at-will power from a class different from yours. You can use that power as an encounter power.",
+                "power": {
+                    "type": "at-will",
+                    "class": "different"
+                }
+            },
+            {
+                "name": "Dual Heritage",
+                "description": "You can take feats that have either elf or human as a prerequisite (as well as those specifically for half-elves), as long as you meet any other requirements."
+            },
+            {
+                "name": "Group Diplomacy",
+                "description": "You grant allies within 10 squares of you a +1 racial bonus to Diplomacy checks."
+            }
+        ]
+    }
+    {
+        "name": "Halfling",
+        "averageHeight": "3`10 - 4`2",
+        "averageWeight": "75 - 85 lbs",
+        "size": "Small",
+        "speed": 6,
+        "vision": "Normal",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Choice" }
+        ],
+        "abilityScores": {
+            "dex": 2,
+            "cha": 2
+        },
+        "skillBonus": [
+            { "name": "Acrobatics", "bonus": 2 },
+            { "name": "Thievery", "bonus": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Bold",
+                "description": "You gain a +5 racial bonus to saving throws against fear."
+            },
+            {
+                "name": "Nimble Reaction",
+                "description": "You gain a +2 racial bonus to AC against opportunity attacks."
+            },
+            {
+                "name": "Second Chance",
+                "description": "You can use second chance as an encounter power.",
+                "power": "Second Chance"
+            }
+        ]
+    }
+    {
+        "name": "Human",
+        "averageHeight": "5`6 - 6`2",
+        "averageWeight": "135 - 220 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "Normal",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Choice" }
+        ],
+        "abilityScores": {
+            "choice": 2
+        },
+        "traits": [
+            {
+                "name": "Bonus At-Will Power",
+                "description": "You know one extra at-will power from your class.",
+                "power": {
+                    "type": "at-will",
+                    "class": "this"
+                }
+            },
+            {
+                "name": "Bonus Feat",
+                "description": "You gain a bonus feat at 1st level. You must meet the feat’s prerequisites.",
+                "feat": "any"
+            },
+            {
+                "name": "Bonus Skill",
+                "description": "You gain training in one additional skill from your class skill list.",
+                "skill": "any"
+            },
+            {
+                "name": "Human Defense Bonuses",
+                "description": "+1 to Fortitude, Reflex, and Will defenses."
+            }
+        ]
+    }
