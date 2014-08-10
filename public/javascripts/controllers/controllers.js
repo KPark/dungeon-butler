@@ -11,7 +11,7 @@ var dungeonButlerApp = angular.module('dungeon-butler', [
 dungeonButlerApp.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider
-            .when('/characters', {
+            .when('/characters/:username', {
                 templateUrl: 'characters',
                 controller: 'character-controller'
             })
@@ -19,7 +19,7 @@ dungeonButlerApp.config(['$routeProvider',
                 templateUrl: 'loginForm',
                 controller: 'login-controller'
             })
-            .when('/characterCreate', {
+            .when('/characterCreate/:id', {
                 templateUrl: 'characterCreate',
                 controller: 'character-controller'
             })
@@ -32,25 +32,24 @@ var dungeonButlerControllers = angular.module('dungeon-butler-controllers', []);
 
 dungeonButlerControllers.controller('login-controller', ['$scope', '$rootScope', '$http', '$location', '$cookies',
         function ($scope, $rootScope, $http, $location, $cookies) {
-            if ($cookies.sessionId != null) {
-                $http.post('/login', { 'sessionId': $cookies.sessionId }).success(function (data) {
-                    $rootScope.loggedInUser.userName = data.username;
-                    $location.path('/characters');
-                });
-            }
+//            if ($cookies.sessionId != null) {
+//                $http.post('/login', { 'sessionId': $cookies.sessionId }).success(function (data) {
+//                    $rootScope.loggedInUser.userName = data.username;
+//                    $location.path('/characters/' + data.username);
+//                });
+//            }
             $scope.login = function () {
                 var data = { "username": $scope.usernameInput, "password": $scope.passwordInput }
                 $http.post('/login', data).success(function (data) {
-                    $rootScope.loggedInUser.userName = data.username;
-                    $location.path('/characters');
+                    console.log(data.username);
+                    $location.path('/characters/' + data.username);
                     $cookies.sessionId = data.sessionId;
                 });
             };
             $scope.register = function () {
                 var data = { "username": $scope.usernameInput, "password": $scope.passwordInput }
                 $http.post('/register', data).success(function (data) {
-                    $rootScope.loggedInUser.userName = data.username;
-                    $location.path('/characters');
+                    $location.path('/characters/' + data.username);
                 });
             };
             $scope.usernameInput = "";
@@ -59,12 +58,23 @@ dungeonButlerControllers.controller('login-controller', ['$scope', '$rootScope',
         }]
 );
 
-dungeonButlerControllers.controller('character-controller', ['$scope', '$rootScope', '$http', '$location', '$cookies',
-        function ($scope, $rootScope, $http, $location, $cookies) {
+dungeonButlerControllers.controller('character-controller', ['$scope', '$routeParams', '$rootScope', '$http', '$location', '$cookies',
+        function ($scope, $routeParams, $rootScope, $http, $location, $cookies) {
+            if ($routeParams.username != "No User") {
+                $http.post('/getCharacterList', { "userId": $routeParams.username }).success(function (data) {
+                    $scope.characterTemplates = data;
+                })
+            }
             $scope.newCharacter = function () {
-                $http.post('/getRaces', { "ruleSet": "dndv4"}).success(function (data) {
-                    $rootScope.races = data;
-                    $location.path('/characterCreate');
+                $http.post('/newCharacter', { "userId": $routeParams.username }).success(function (data) {
+                    $location.path('/characterCreate/' + data);
+                })
+            }
+            $scope.init = function () {
+                console.log("blarg");
+                $http.post('/getRaces').success(function (data) {
+                    $scope.races = data;
+                    console.log($scope.races);
                 })
             }
             $scope.characterTemplates = [
@@ -79,6 +89,7 @@ dungeonButlerControllers.controller('character-controller', ['$scope', '$rootSco
                     hp: "14"
                 }
             ]
+            $scope.races = [];
         }
     ]
 );

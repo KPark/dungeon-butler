@@ -1,45 +1,22 @@
 extends layout
 
 block content
-    div(ng-controller="character-controller")
-        div(ng-repeat="t in races")
-            table
-                tr
-                    td Name
-                    td {{t.name}}
-                tr
-                    td Average Height
-                    td {{t.averageHeight}}
-                tr
-                    td Average Weight
-                    td {{t.averageWeight}}
-                tr
-                    td Size
-                    td {{t.size}}
-                tr
-                    td Speed
-                    td {{t.speed}}
-                tr
-                    td Vision
-                    td {{t.vision}}
-                tr
-                    td Languages
-                    td
-                        div(ng-repeat="language in t.languages")
-                            span {{language.name}}
-                            br
-                tr
-                    td Skills
-                    td
-                        div(ng-repeat="skill in t.skills")
-                            span {{skill.name}} - {{skill.bonus}}
-                            br
-                tr
-                    td Ability Bonuses
-                    td
-                        div(ng-repeat="ability in t.abilityScores") {{ability}}
-                tr
-                    td Traits
-                    td
-                        div(ng-repeat="trait in t.traits")
-                            span {{trait.name}} - {{trait.description}}
+    div(ng-controller="character-controller", ng-init="init()")
+        div(ng-repeat="t in races" style="width: 100%; color: white; background-color: black;")
+            h1 {{t.name}}
+            div(style="text-align: right;")
+                div Average Height: {{t.averageHeight}}
+                div Average Weight: {{t.averageWeight}}
+                div Size: {{t.size}}
+                div Speed: {{t.speed}}
+                div Vision: {{t.vision}}
+                div Languages:&nbsp;
+                    span(ng-repeat="language in t.languages") {{language.name}}&nbsp;
+                div Skills:&nbsp;
+                    span(ng-repeat="skill in t.skills") {{skill.name}} - {{skill.bonus}}
+                div Ability Bonuses:&nbsp;
+                    span(ng-repeat="ability in t.abilityScores") {{ability}}
+                div
+                    div(ng-repeat="trait in t.traits")
+                        h3 {{trait.name}}
+                        div {{trait.description}}

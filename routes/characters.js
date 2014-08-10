@@ -6,7 +6,7 @@ exports.characters = function(req, res){
     res.render('characters', { title: 'Characters' });
 };
 
-exports.getCharacterList = function(req, res) {
+exports.getCharacterList = function(db) {
     return (function(req, res) {
         var username = req.body.username;
         var collection = db.get('characters');
