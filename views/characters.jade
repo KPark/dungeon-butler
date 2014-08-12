@@ -5,4 +5,4 @@ block content
         h2(style="text-align: center") Character Templates
             button(class="header_button", ng-click="newCharacter()") + New
         div(ng-repeat="t in characterTemplates" style="border: 3px solid black; width: 45%; display: inline-block;")
-            h2(style="margin-left: 10%;") {{t.name}}
+            a(href="/#/characterCreate/{{t._id}}") {{t.name}}

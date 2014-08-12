@@ -15,3 +15,12 @@ exports.getCharacterList = function(db) {
         });
     });
 };
+
+exports.getCharacter = function(db) {
+    return (function(req, res) {
+        var characterId = req.body.id;
+        db.get('characters').findOne({"_id": characterId}, {}, function(e, docs) {
+            res.send(docs);
+        });
+    });
+}

@@ -47,3 +47,18 @@ a {
     color: crimson;
     background: limegreen;
 }
+
+.character-create-header {
+    width: 100%;
+    height: 3em;
+    background-color: grey;
+    border-bottom: 0.25em inset aqua;
+    position: static;
+    top: 0;
+}
+
+.character-create-header-text {
+    font-family: 'TheKidsMraker';
+    font-size: 2em;
+    margin-left: 1em;
+}

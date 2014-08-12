@@ -36,6 +36,7 @@ app.post('/register', routes.register(db));
 app.post('/getRaces', characterCreate.getRaces(db));
 app.post('/getCharacterList', characters.getCharacterList(db));
 app.post('/newCharacter', characterCreate.newCharacter(db));
+app.post('/getCharacter', characters.getCharacter(db));
 
 app.get('/characters', characters.characters);
 app.get('/characterCreate', characterCreate.characterCreate);

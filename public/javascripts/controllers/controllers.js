@@ -19,7 +19,7 @@ dungeonButlerApp.config(['$routeProvider',
                 templateUrl: 'loginForm',
                 controller: 'login-controller'
             })
-            .when('/characterCreate/:id', {
+            .when('/characterCreate/:characterId', {
                 templateUrl: 'characterCreate',
                 controller: 'character-controller'
             })
@@ -71,25 +71,29 @@ dungeonButlerControllers.controller('character-controller', ['$scope', '$routePa
                 })
             }
             $scope.init = function () {
-                console.log("blarg");
-                $http.post('/getRaces').success(function (data) {
-                    $scope.races = data;
-                    console.log($scope.races);
-                })
-            }
-            $scope.characterTemplates = [
-                {
-                    firstName: "Gimli",
-                    lastName: "Son of Gloin",
-                    hp: "24"
-                },
-                {
-                    firstName: "Harry",
-                    lastName: "Potter",
-                    hp: "14"
+                if ($routeParams.characterId != null) {
+                    $http.post('/getRaces').success(function (data) {
+                        $scope.races = data;
+                        $http.post('/getCharacter', {'id': $routeParams.characterId}).success(function (characterData) {
+                            $scope.activeCharacter = characterData;
+                        });
+                    });
                 }
-            ]
+            }
+            $scope.pickRace = function (race) {
+                $scope.activeCharacter.race = race;
+                console.log($scope.activeCharacter);
+            }
+            $scope.characterTemplates = [];
             $scope.races = [];
+            $scope.activeCharacter = {};
+            $scope.tabs = [
+                {
+                    title: 'Race',
+                    url: 'cc.races.html'
+                }
+            ];
+            $scope.currentTab = 'cc.races.html';
         }
     ]
 );

@@ -2,21 +2,33 @@ extends layout
 
 block content
     div(ng-controller="character-controller", ng-init="init()")
-        div(ng-repeat="t in races" style="width: 100%; color: white; background-color: black;")
-            h1 {{t.name}}
-            div(style="text-align: right;")
-                div Average Height: {{t.averageHeight}}
-                div Average Weight: {{t.averageWeight}}
-                div Size: {{t.size}}
-                div Speed: {{t.speed}}
-                div Vision: {{t.vision}}
-                div Languages:&nbsp;
-                    span(ng-repeat="language in t.languages") {{language.name}}&nbsp;
-                div Skills:&nbsp;
-                    span(ng-repeat="skill in t.skills") {{skill.name}} - {{skill.bonus}}
-                div Ability Bonuses:&nbsp;
-                    span(ng-repeat="ability in t.abilityScores") {{ability}}
-                div
-                    div(ng-repeat="trait in t.traits")
-                        h3 {{trait.name}}
-                        div {{trait.description}}
+        div(class="character-create-header")
+            input(class="character-create-header-text" ng-model="activeCharacter.name")
+            span(class="character-create-header-text") {{activeCharacter.race}}
+        div
+            a(href="javascript: void(0)" ng-click="currentTab = 'cc.races.html'") Race
+            span &nbsp;&nbsp;
+            a(href="javascript: void(0)" ng-click="currentTab = 'cc.classes.html'") Class
+        div(ng-include="currentTab" style="height: 60em; overflow: auto;")
+        script(type="text/ng-template" id="cc.races.html")
+            div(ng-repeat="t in races" style="width: 100%; color: white; background-color: black;")
+                h1 {{t.name}}
+                a(href='javascript: void(0)' ng-click="pickRace(t.name)") Select
+                div(style="text-align: right;")
+                    div Average Height: {{t.averageHeight}}
+                    div Average Weight: {{t.averageWeight}}
+                    div Size: {{t.size}}
+                    div Speed: {{t.speed}}
+                    div Vision: {{t.vision}}
+                    div Languages:&nbsp;
+                        span(ng-repeat="language in t.languages") {{language.name}}&nbsp;
+                    div Skills:&nbsp;
+                        span(ng-repeat="skill in t.skills") {{skill.name}} - {{skill.bonus}}
+                    div Ability Bonuses:&nbsp;
+                        span(ng-repeat="ability in t.abilityScores") {{ability}}
+                    div
+                        div(ng-repeat="trait in t.traits")
+                            h3 {{trait.name}}
+                            div {{trait.description}}
+        script(type="text/ng-template" id="cc.classes.html")
+            div Coming Soon!
