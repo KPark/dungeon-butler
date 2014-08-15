@@ -19,9 +19,13 @@ dungeonButlerApp.config(['$routeProvider',
                 templateUrl: 'loginForm',
                 controller: 'login-controller'
             })
-            .when('/characterCreate/:characterId', {
+            .when('/characterCreate/:userId/:characterId', {
                 templateUrl: 'characterCreate',
-                controller: 'character-controller'
+                controller: 'character-create-controller'
+            })
+            .when('/characterCreate/:userId', {
+                templateUrl: 'characterCreate',
+                controller: 'character-create-controller'
             })
             .otherwise({
                 redirectTo: '/loginForm'
@@ -41,13 +45,14 @@ dungeonButlerControllers.controller('login-controller', ['$scope', '$rootScope',
             $scope.login = function () {
                 var data = { "username": $scope.usernameInput, "password": $scope.passwordInput }
                 $http.post('/login', data).success(function (data) {
-                    console.log(data.username);
                     $location.path('/characters/' + data.username);
                     $cookies.sessionId = data.sessionId;
                 });
             };
             $scope.register = function () {
+                console.log("I think you are drunk comp.");
                 var data = { "username": $scope.usernameInput, "password": $scope.passwordInput }
+                console.log("Data: " + data);
                 $http.post('/register', data).success(function (data) {
                     $location.path('/characters/' + data.username);
                 });
@@ -66,34 +71,11 @@ dungeonButlerControllers.controller('character-controller', ['$scope', '$routePa
                 })
             }
             $scope.newCharacter = function () {
-                $http.post('/newCharacter', { "userId": $routeParams.username }).success(function (data) {
-                    $location.path('/characterCreate/' + data);
-                })
+                $location.path('/characterCreate/' + $routeParams.username);
             }
-            $scope.init = function () {
-                if ($routeParams.characterId != null) {
-                    $http.post('/getRaces').success(function (data) {
-                        $scope.races = data;
-                        $http.post('/getCharacter', {'id': $routeParams.characterId}).success(function (characterData) {
-                            $scope.activeCharacter = characterData;
-                        });
-                    });
-                }
+            $scope.showCharacter = function (characterId) {
+                $location.path('/characterCreate/' + $routeParams.username + "/" + characterId);
             }
-            $scope.pickRace = function (race) {
-                $scope.activeCharacter.race = race;
-                console.log($scope.activeCharacter);
-            }
-            $scope.characterTemplates = [];
-            $scope.races = [];
-            $scope.activeCharacter = {};
-            $scope.tabs = [
-                {
-                    title: 'Race',
-                    url: 'cc.races.html'
-                }
-            ];
-            $scope.currentTab = 'cc.races.html';
         }
     ]
 );

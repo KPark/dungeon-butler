@@ -14,7 +14,6 @@ exports.login = function(db) {
         var password = req.body.password;
         var sessionId = req.sessionID;
 
-        var hashedPassword = passwordHash.generate(req.body.password);
         var collection = db.get('users');
         if (userName == null) {
             collection.find({'sessionId': sessionId}, {}, function(e, docs) {
@@ -29,8 +28,7 @@ exports.login = function(db) {
                         { "username": "Invalid Username / Password" }
                     ];
                 } else {
-                    var isPasswordValid = passwordHash.verify(password, docs[0].password);
-                    if (!isPasswordValid) {
+                    if (password != docs[0].password) {
                         docs = [
                             { "username": "Invalid Username / Password" }
                         ];

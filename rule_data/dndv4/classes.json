@@ -1,0 +1,1487 @@
+{
+    "name": "Paladin",
+    "powerSource": "Divine",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" },
+        { "name": "Chainmail" },
+        { "name": "Scale" },
+        { "name": "Plate" },
+        { "name": "Light Shield" },
+        { "name": "Heavy Shield" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Military melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [
+        { "name": "Holy symbol" }
+    ],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 1 },
+        { "name": "Reflex", "bonus": 1 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 15,
+        "score": "Constitution",
+        "level": 6
+    },
+    "healingSurge": {
+        "base": 10,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Diplomacy", "type": "Class", "ability": "Charisma" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "History", "type": "Class", "ability": "Intelligence" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Religion", "type": "Trained", "ability": "Intelligence" }
+    ],
+    "builds": [
+        {
+            "name": "Avenging Paladin",
+            "feats": [
+                { "name": "Power Attack" }
+            ],
+            "skills": [
+                { "name": "Endurance" },
+                { "name": "Heal" },
+                { "name": "Intimidate" },
+                { "name": "Religion" }
+            ],
+            "powers": [
+                { "name": "Holy Strike" },
+                { "name": "Valiant Strike" },
+                { "name": "Radiant Smite" },
+                { "name": "Paladin's Judgment" }
+            ],
+            "abilityScores": [
+                { "name": "Strength", "score": 16 },
+                { "name": "Constitution", "score": 12 },
+                { "name": "Dexterity", "score": 10 },
+                { "name": "Intelligence", "score": 11 },
+                { "name": "Wisdom", "score": 13 },
+                { "name": "Charisma", "score": 14 }
+            ]
+        },
+        {
+            "name": "Protecting Paladin",
+            "feats": [
+                { "name": "Healing Hands" }
+            ],
+            "skills": [
+                { "name": "Diplomacy" },
+                { "name": "Heal" },
+                { "name": "Insight" },
+                { "name": "Religion" }
+            ],
+            "powers": [
+                { "name": "Bolstering Strike" },
+                { "name": "Enfeebling Strike" },
+                { "name": "Shielding Smite" },
+                { "name": "Radiant Delirium" }
+            ],
+            "abilityScores": [
+                { "name": "Strength", "score": 14 },
+                { "name": "Constitution", "score": 12 },
+                { "name": "Dexterity", "score": 10 },
+                { "name": "Intelligence", "score": 11 },
+                { "name": "Wisdom", "score": 13 },
+                { "name": "Charisma", "score": 16 }
+            ]
+        }
+    ],
+    "powers": [
+        {
+            "name": "Divine Challenge"
+        },
+        {
+            "name": "Lay on Hands"
+        }
+    ]
+}
+{
+    "name": "Warlock",
+    "powerSource": "Arcane",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [
+        { "name": "Rods" },
+        { "name": "Wands" }
+    ],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 1 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 6,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Arcana", "type": "Class", "ability": "Intelligence" },
+        { "name": "Bluff", "type": "Class", "ability": "Charisma" },
+        { "name": "History", "type": "Class", "ability": "Intelligence" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Religion", "type": "Class", "ability": "Intelligence" },
+        { "name": "Streetwise", "type": "Class", "ability": "Charisma" },
+        { "name": "Thievery", "type": "Class", "ability": "Dexterity" }
+    ],
+    "builds": [
+        {
+            "name": "Deceptive Warlock",
+            "feats": [
+                { "name": "Improved Misty Step" }
+            ],
+            "skills": [
+                { "name": "Arcana" },
+                { "name": "Bluff" },
+                { "name": "Insight" },
+                { "name": "Thievery" }
+            ],
+            "powers": [
+                { "name": "Eldritch Blast" },
+                { "name": "Eyebite" },
+                { "name": "Witchfire" },
+                { "name": "Curse of the Dark Dream" }
+            ],
+            "abilityScores": [
+                { "name": "Strength", "score": 10 },
+                { "name": "Constitution", "score": 13 },
+                { "name": "Dexterity", "score": 11 },
+                { "name": "Intelligence", "score": 14 },
+                { "name": "Wisdom", "score": 12 },
+                { "name": "Charisma", "score": 16 }
+            ]
+        },
+        {
+            "name": "Scourge Warlock",
+            "feats": [
+                { "name": "Improved Dark One's Blessing" }
+            ],
+            "skills": [
+                { "name": "Arcana" },
+                { "name": "History" },
+                { "name": "Intimidate" },
+                { "name": "Streetwise" }
+            ],
+            "powers": [
+                { "name": "Eldritch Blast" },
+                { "name": "Hellish Rebuke" },
+                { "name": "Vampiric Embrace" },
+                { "name": "Flames of Phlegethos" }
+            ],
+            "abilityScores": [
+                { "name": "Strength", "score": 10 },
+                { "name": "Constitution", "score": 16 },
+                { "name": "Dexterity", "score": 11 },
+                { "name": "Intelligence", "score": 14 },
+                { "name": "Wisdom", "score": 12 },
+                { "name": "Charisma", "score": 13 }
+            ]
+        }
+    ],
+    "powers": []
+}
+{
+    "name": "Ranger",
+    "powerSource": "Martial",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Military melee" },
+        { "name": "Simple ranged" },
+        { "name": "Military ranged" }
+    ],
+    "implements": [ ],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 1 },
+        { "name": "Reflex", "bonus": 1 },
+        { "name": "Will", "bonus": 0 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 6,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Dungeoneering", "type": "Class", "ability": "Wisdom" },
+        { "name": "Nature", "type": "Class", "ability": "Wisdom" },
+        { "name": "Acrobatics", "type": "Class", "ability": "Dexterity" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" },
+        { "name": "Stealth", "type": "Class", "ability": "Dexterity" }
+    ],
+    "builds": [
+        {
+            "name": "Archer Ranger",
+            "feats": [
+                { "name": "Lethal Hunter" },
+                { "name": "Defensive Mobility" }
+            ],
+            "skills": [
+                { "name": "Endurance" },
+                { "name": "Heal" },
+                { "name": "Nature" },
+                { "name": "Perception" },
+                { "name": "Stealth" }
+            ],
+            "powers": [
+                { "name": "Careful Attack" },
+                { "name": "Nimble Strike" },
+                { "name": "Evasive Strike" },
+                { "name": "Split the Tree" }
+            ],
+            "abilityScores": [
+                { "name": "Strength", "score": 14 },
+                { "name": "Constitution", "score": 10 },
+                { "name": "Dexterity", "score": 16 },
+                { "name": "Intelligence", "score": 12 },
+                { "name": "Wisdom", "score": 13 },
+                { "name": "Charisma", "score": 11 }
+            ]
+        },
+        {
+            "name": "Two-Blade Ranger",
+            "feats": [
+                { "name": "Lethal Hunter" },
+                { "name": "Toughness" }
+            ],
+            "skills": [
+                { "name": "Acrobatics" },
+                { "name": "Dungeoneering" },
+                { "name": "Endurance" },
+                { "name": "Heal" },
+                { "name": "Perception" }
+            ],
+            "powers": [
+                { "name": "Hit and Run" },
+                { "name": "Twin Strike" },
+                { "name": "Dire Wolverine Strike" },
+                { "name": "Jaws of the Wolf" }
+            ],
+            "abilityScores": [
+                { "name": "Strength", "score": 16 },
+                { "name": "Constitution", "score": 12 },
+                { "name": "Dexterity", "score": 14 },
+                { "name": "Intelligence", "score": 11 },
+                { "name": "Wisdom", "score": 13 },
+                { "name": "Charisma", "score": 10 }
+            ]
+        }
+    ],
+    "powers": []
+}
+{
+    "name": "Bard",
+    "powerSource": "Arcane",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" },
+        { "name": "Chainmail" },
+        { "name": "Light Shield" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Longsword" },
+        { "name": "Scimitar" },
+        { "name": "Short Sword" },
+        { "name": "Simple ranged" },
+        { "name": "Military ranged" }
+    ],
+    "implements": [
+        { "name": "Wands" }
+    ],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 1 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 7,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Arcana", "type": "Trained", "ability": "Intelligence" },
+        { "name": "Acrobatics", "type": "Class", "ability": "Dexterity" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Bluff", "type": "Class", "ability": "Charisma" },
+        { "name": "Diplomacy", "type": "Class", "ability": "Charisma" },
+        { "name": "Dungeoneering", "type": "Class", "ability": "Wisdom" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "History", "type": "Class", "ability": "Intelligence" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Nature", "type": "Class", "ability": "Wisdom" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" },
+        { "name": "Religion", "type": "Class", "ability": "Intelligence" },
+        { "name": "Streetwise", "type": "Class", "ability": "Charisma" }
+    ],
+    "builds": [
+        {
+            "name": "Cunning Bard",
+            "feats": [
+                { "name": "Advantage of Cunning" },
+                { "name": "Ritual Caster" }
+            ],
+            "skills": [
+                { "name": "Arcana" },
+                { "name": "Bluff" },
+                { "name": "Intimidate" },
+                { "name": "Perception" },
+                { "name": "Streetwise" }
+            ],
+            "powers": [
+                { "name": "Misdirected Mark" },
+                { "name": "Vicious Mockery" },
+                { "name": "Blunder" },
+                { "name": "Stirring Shout" },
+                { "name": "Virtue of Cunning" }
+            ],
+            "abilityScores": [
+                { "name": "Strength", "score": 10 },
+                { "name": "Constitution", "score": 11 },
+                { "name": "Dexterity", "score": 12 },
+                { "name": "Intelligence", "score": 14 },
+                { "name": "Wisdom", "score": 13 },
+                { "name": "Charisma", "score": 16 }
+            ]
+        },
+        {
+            "name": "Valorous Bard",
+            "feats": [
+                { "name": "Strength of Valor" },
+                { "name": "Ritual Caster" }
+            ],
+            "skills": [
+                { "name": "Arcana" },
+                { "name": "Athletics" },
+                { "name": "Diplomacy" },
+                { "name": "Intimidate" },
+                { "name": "Perception" }
+            ],
+            "powers": [
+                { "name": "Guiding Strike" },
+                { "name": "War Song Strike" },
+                { "name": "Shout of Triumph" },
+                { "name": "Slayer's Song" },
+                { "name": "Virtue of Valor" }
+            ],
+            "abilityScores": [
+                { "name": "Strength", "score": 10 },
+                { "name": "Constitution", "score": 14 },
+                { "name": "Dexterity", "score": 11 },
+                { "name": "Intelligence", "score": 13 },
+                { "name": "Wisdom", "score": 12 },
+                { "name": "Charisma", "score": 16 }
+            ]
+        }
+    ],
+    "powers": [
+        { "name": "Majestic Word" },
+        { "name": "Words of Friendship" }
+    ]
+}
+{
+    "name": "Sorcerer",
+    "powerSource": "Arcane",
+    "armorProficiencies": [
+        { "name": "Cloth" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [
+        { "name": "Daggers" },
+        { "name": "Staffs" }
+    ],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 2 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 6,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Arcana", "type": "Trained", "ability": "Intelligence" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Bluff", "type": "Class", "ability": "Charisma" },
+        { "name": "Diplomacy", "type": "Class", "ability": "Charisma" },
+        { "name": "Dungeoneering", "type": "Class", "ability": "Wisdom" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "History", "type": "Class", "ability": "Intelligence" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Nature", "type": "Class", "ability": "Wisdom" }
+    ],
+    "builds": [
+        {
+            "name": "Chaos Sorcerer",
+            "feats": [
+                { "name": "Arcane Spellfury" }
+            ],
+            "skills": [
+                { "name": "Arcana" },
+                { "name": "Bluff" },
+                { "name": "Endurance" },
+                { "name": "Insight" }
+            ],
+            "powers": [
+                { "name": "Chaos Bolt" },
+                { "name": "Storm Walk" },
+                { "name": "Bedeviling Burst" },
+                { "name": "Dazzling Ray" },
+                { "name": "Wild Magic" }
+            ],
+            "abilityScores": [
+                { "name": "Strength", "score": 13 },
+                { "name": "Constitution", "score": 10 },
+                { "name": "Dexterity", "score": 14 },
+                { "name": "Intelligence", "score": 12 },
+                { "name": "Wisdom", "score": 11 },
+                { "name": "Charisma", "score": 16 }
+            ]
+        },
+        {
+            "name": "Dragon Sorcerer",
+            "feats": [
+                { "name": "Implement Expertise" }
+            ],
+            "skills": [
+                { "name": "Arcana" },
+                { "name": "Athletics" },
+                { "name": "History" },
+                { "name": "Intimidate" }
+            ],
+            "powers": [
+                { "name": "Burning Spray" },
+                { "name": "Dragonfrost" },
+                { "name": "Tempest Breath" },
+                { "name": "Lightning Breath" },
+                { "name": "Dragon Magic" }
+            ],
+            "abilityScores": [
+                { "name": "Strength", "score": 14 },
+                { "name": "Constitution", "score": 10 },
+                { "name": "Dexterity", "score": 13 },
+                { "name": "Intelligence", "score": 11 },
+                { "name": "Wisdom", "score": 12 },
+                { "name": "Charisma", "score": 16 }
+            ]
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Avenger",
+    "powerSource": "Divine",
+    "armorProficiencies": [
+        { "name": "Cloth" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Military melee" },
+        { "name": "Simple Ranged" }
+    ],
+    "implements": [
+        { "name": "Holy symbols" }
+    ],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 1 },
+        { "name": "Reflex", "bonus": 1 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 14,
+        "score": "Constitution",
+        "level": 6
+    },
+    "healingSurge": {
+        "base": 7,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Religion", "type": "Trained", "ability": "Intelligence" },
+        { "name": "Acrobatics", "type": "Class", "ability": "Dexterity" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" },
+        { "name": "Stealth", "type": "Class", "ability": "Dexterity" },
+        { "name": "Streetwise", "type": "Class", "ability": "Charisma" }
+    ],
+    "builds": [
+        {
+            "name": "Isolating Avenger",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Pursuing Avenger",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Barbarian",
+    "powerSource": "Primal",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Military melee" }
+    ],
+    "implements": [],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 2 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 0 }
+    ],
+    "hitPoints": {
+        "base": 15,
+        "score": "Constitution",
+        "level": 6
+    },
+    "healingSurge": {
+        "base": 8,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Acrobatics", "type": "Class", "ability": "Dexterity" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Nature", "type": "Class", "ability": "Wisdom" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" }
+    ],
+    "builds": [
+        {
+            "name": "Rageblood Barbarian",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Thaneborn Barbarian",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Druid",
+    "powerSource": "Primal",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 1 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 7,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Acrobatics", "type": "Class", "ability": "Dexterity" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Nature", "type": "Class", "ability": "Wisdom" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" }
+    ],
+    "builds": [
+        {
+            "name": "Guardian Druid",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Predator Druid",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Invoker",
+    "powerSource": "Divine",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" },
+        { "name": "Chainmail" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [
+        { "name": "Rods" },
+        { "name": "Staffs" }
+    ],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 1 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 10,
+        "score": "Constitution",
+        "level": 4
+    },
+    "healingSurge": {
+        "base": 6,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Arcana", "type": "Class", "ability": "Intelligence" },
+        { "name": "Diplomacy", "type": "Class", "ability": "Charisma" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "History", "type": "Class", "ability": "Intelligence" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Religion", "type": "Trained", "ability": "Intelligence" }
+    ],
+    "builds": [
+        {
+            "name": "Preserving Invoker",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Wrathful Invoker",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Shaman",
+    "powerSource": "Primal",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Longspear" }
+    ],
+    "implements": [],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 1 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 7,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Arcana", "type": "Class", "ability": "Intelligence" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "History", "type": "Class", "ability": "Intelligence" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Nature", "type": "Class", "ability": "Wisdom" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" },
+        { "name": "Religion", "type": "Class", "ability": "Intelligence" }
+    ],
+    "builds": [
+        {
+            "name": "Bear Shaman",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Panther Shaman",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Warden",
+    "powerSource": "Primal",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" },
+        { "name": "Light shield" },
+        { "name": "Heavy shield" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Military melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 1 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 17,
+        "score": "Constitution",
+        "level": 7
+    },
+    "healingSurge": {
+        "base": 9,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Dungeoneering", "type": "Class", "ability": "Wisdom" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Nature", "type": "Class", "ability": "Wisdom" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" }
+    ],
+    "builds": [
+        {
+            "name": "Earth Warden",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Wild Warden",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Cleric",
+    "powerSource": "Divine",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" },
+        { "name": "Chainmail" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [
+        { "name": "Holy Symbol" }
+    ],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 2 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 7
+    },
+    "healingSurge": {
+        "base": 7,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Dungeoneering", "type": "Class", "ability": "Wisdom" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Nature", "type": "Class", "ability": "Wisdom" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" }
+    ],
+    "builds": [
+        {
+            "name": "Battle Cleric",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Devoted Cleric",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Fighter",
+    "powerSource": "Martial",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" },
+        { "name": "Chainmail" },
+        { "name": "Scale" },
+        { "name": "Light Shield" },
+        { "name": "Heavy shield" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Military melee" },
+        { "name": "Simple ranged" },
+        { "name": "Military ranged" }
+    ],
+    "implements": [],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 2 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 0 }
+    ],
+    "hitPoints": {
+        "base": 15,
+        "score": "Constitution",
+        "level": 6
+    },
+    "healingSurge": {
+        "base": 9,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Streetwise", "type": "Class", "ability": "Charisma" }
+    ],
+    "builds": [
+        {
+            "name": "Great Weapon Fighter",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Guardian Fighter",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Rogue",
+    "powerSource": "Martial",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Dagger" },
+        { "name": "Hand Crossbow" },
+        { "name": "Shuriken" },
+        { "name": "Sling" },
+        { "name": "Short Sword" }
+    ],
+    "implements": [],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 2 },
+        { "name": "Will", "bonus": 0 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 6,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Acrobatics", "type": "Class", "ability": "Dexterity" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Bluff", "type": "Class", "ability": "Charisma" },
+        { "name": "Dungeoneering", "type": "Class", "ability": "Wisdom" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" },
+        { "name": "Stealth", "type": "Trained", "ability": "Dexterity" },
+        { "name": "Streetwise", "type": "Class", "ability": "Charisma" },
+        { "name": "Thievery", "type": "Class", "ability": "Dexterity" }
+    ],
+    "builds": [
+        {
+            "name": "Brawny Rogue",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Trickster Rogue",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Warlord",
+    "powerSource": "Martial",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" },
+        { "name": "Chainmail" },
+        { "name": "Light Shield" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Military melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 1 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 7,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Diplomacy", "type": "Class", "ability": "Charisma" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "History", "type": "Class", "ability": "Intelligence" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" }
+    ],
+    "builds": [
+        {
+            "name": "Inspiring Warlord",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Tactical Warlord",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Wizard",
+    "powerSource": "Arcane",
+    "armorProficiencies": [
+        { "name": "Cloth" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Dagger" },
+        { "name": "Quarterstaff" }
+    ],
+    "implements": [
+        { "name": "Orbs" },
+        { "name": "Staffs" },
+        { "name": "Wands" }
+    ],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 2 }
+    ],
+    "hitPoints": {
+        "base": 10,
+        "score": "Constitution",
+        "level": 6
+    },
+    "healingSurge": {
+        "base": 7,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Arcana", "type": "Class", "ability": "Intelligence" },
+        { "name": "Diplomacy", "type": "Class", "ability": "Charisma" },
+        { "name": "Dungeoneering", "type": "Class", "ability": "Charisma" },
+        { "name": "History", "type": "Class", "ability": "Intelligence" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Nature", "type": "Class", "ability": "Wisdom" },
+        { "name": "Religion", "type": "Class", "ability": "Intelligence" }
+    ],
+    "builds": [
+        {
+            "name": "Control Wizard",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "War Wizard",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Ardent",
+    "powerSource": "Psionic",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" },
+        { "name": "Chainmail" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Military melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 1 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 7,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Arcana", "type": "Class", "ability": "Intelligence" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Bluff", "type": "Class", "ability": "Charisma" },
+        { "name": "Diplomacy", "type": "Class", "ability": "Charisma" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Streetwise", "type": "Class", "ability": "Charisma" }
+    ],
+    "builds": [
+        {
+            "name": "Enlightened Ardent",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Euphoric Ardent",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Battlemind",
+    "powerSource": "Psionic",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" },
+        { "name": "Chainmail" },
+        { "name": "Scale" },
+        { "name": "Light shield" },
+        { "name": "Heavy shield" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Military melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 2 }
+    ],
+    "hitPoints": {
+        "base": 15,
+        "score": "Constitution",
+        "level": 6
+    },
+    "healingSurge": {
+        "base": 9,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Arcana", "type": "Class", "ability": "Intelligence" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Bluff", "type": "Class", "ability": "Charisma" },
+        { "name": "Diplomacy", "type": "Class", "ability": "Charisma" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" }
+    ],
+    "builds": [
+        {
+            "name": "Resilient Battlemind",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Quick Battlemind",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Monk",
+    "powerSource": "Psionic",
+    "armorProficiencies": [
+        { "name": "Cloth" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Club" },
+        { "name": "Dagger" },
+        { "name": "Monk unarmed strike" },
+        { "name": "Quarterstaff" },
+        { "name": "Shuriken" },
+        { "name": "Sling" },
+        { "name": "Spear" }
+    ],
+    "implements": [
+        { "name": "Ki Focuses" },
+        { "name": "Weapons with which you have proficiency" },
+    ],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 1 },
+        { "name": "Reflex", "bonus": 1 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 7,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Acrobatics", "type": "Class", "ability": "Dexterity" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Diplomacy", "type": "Class", "ability": "Charisma" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" },
+        { "name": "Religion", "type": "Class", "ability": "Intelligence" },
+        { "name": "Stealth", "type": "Class", "ability": "Dexterity" },
+        { "name": "Thievery", "type": "Class", "ability": "Dexterity" }
+    ],
+    "builds": [
+        {
+            "name": "Centered Breath Monk",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Stone Fist Monk",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Psion",
+    "powerSource": "Psionic",
+    "armorProficiencies": [
+        { "name": "Cloth" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [
+        { "name": "Orbs" },
+        { "name": "Staffs" },
+    ],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 2 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 4
+    },
+    "healingSurge": {
+        "base": 6,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Acrobatics", "type": "Class", "ability": "Dexterity" },
+        { "name": "Bluff", "type": "Class", "ability": "Charisma" },
+        { "name": "Diplomacy", "type": "Class", "ability": "Charisma" },
+        { "name": "Dungeoneering", "type": "Class", "ability": "Wisdom" },
+        { "name": "History", "type": "Class", "ability": "Intelligence" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" }
+    ],
+    "builds": [
+        {
+            "name": "Telekinetic Psion",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Telepathic Psion",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Runepriest",
+    "powerSource": "Divine",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" },
+        { "name": "Hide" },
+        { "name": "Chainmail" },
+        { "name": "Scale" },
+        { "name": "Light shield" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Simple ranged" }
+    ],
+    "implements": [],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 0 },
+        { "name": "Will", "bonus": 2 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 7,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Arcana", "type": "Class", "ability": "Intelligence" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "History", "type": "Class", "ability": "Intelligence" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Religion", "type": "Class", "ability": "Intelligence" },
+        { "name": "Thievery", "type": "Class", "ability": "Dexterity" }
+    ],
+    "builds": [
+        {
+            "name": "Defiant Runepriest",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Wrathful Runepriest",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}
+{
+    "name": "Seeker",
+    "powerSource": "Primal",
+    "armorProficiencies": [
+        { "name": "Cloth" },
+        { "name": "Leather" }
+    ],
+    "weaponProficiencies": [
+        { "name": "Simple melee" },
+        { "name": "Simple ranged" },
+        { "name": "Military ranged" }
+    ],
+    "implements": [],
+    "defenseBonus": [
+        { "name": "Fortitude", "bonus": 0 },
+        { "name": "Reflex", "bonus": 1 },
+        { "name": "Will", "bonus": 1 }
+    ],
+    "hitPoints": {
+        "base": 12,
+        "score": "Constitution",
+        "level": 5
+    },
+    "healingSurge": {
+        "base": 7,
+        "modifier": "Constitution"
+    },
+    "skills": [
+        { "name": "Acrobatics", "type": "Class", "ability": "Dexterity" },
+        { "name": "Athletics", "type": "Class", "ability": "Strength" },
+        { "name": "Endurance", "type": "Class", "ability": "Constitution" },
+        { "name": "Heal", "type": "Class", "ability": "Wisdom" },
+        { "name": "Insight", "type": "Class", "ability": "Wisdom" },
+        { "name": "Intimidate", "type": "Class", "ability": "Charisma" },
+        { "name": "Nature", "type": "Class", "ability": "Wisdom" },
+        { "name": "Perception", "type": "Class", "ability": "Wisdom" },
+        { "name": "Stealth", "type": "Class", "ability": "Dexterity" }
+    ],
+    "builds": [
+        {
+            "name": "Protecting Seeker",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        },
+        {
+            "name": "Vengeful Seeker",
+            "feats": [],
+            "skills": [],
+            "powers": [],
+            "abilityScores": []
+        }
+    ],
+    "powers": [ ]
+}

@@ -10,10 +10,16 @@
             { "name": "Common" },
             { "name": "Draconic" }
         ],
-        "abilityScores": {
-            "str": 2,
-            "cha": 2
-        },
+        "abilityScores": [
+            {
+                "name": "Strength",
+                "value": 2
+            },
+            {
+                "name": "Charisma",
+                "value": 2
+            }
+        ],
         "skillBonus": [
             { "name": "History", "bonus": 2 },
             { "name": "Intimidate", "bonus": 2 }
@@ -45,10 +51,16 @@
             { "name": "Common" },
             { "name": "Dwarven" }
         ],
-        "abilityScores": {
-            "con": 2,
-            "wis": 2
-        },
+        "abilityScores": [
+            {
+                "name": "Constitution",
+                "value": 2
+            },
+            {
+                "name": "Wisdom",
+                "value": 2
+            }
+        ],
         "skillBonus": [
             { "name": "Dungeoneering", "bonus": 2 },
             { "name": "Endurance", "bonus": 2 }
@@ -87,10 +99,16 @@
             { "name": "Common" },
             { "name": "Elven" }
         ],
-        "abilityScores": {
-            "dex": 2,
-            "int": 2
-        },
+        "abilityScores": [
+            {
+            "name": "Dexterity",
+            "value": 2
+            },
+            {
+            "name": "Intelligence",
+            "value": 2
+            }
+        ],
         "skillBonus": [
             { "name": "Arcana", "bonus": 2 },
             { "name": "History", "bonus": 2 }
@@ -134,10 +152,16 @@
             { "name": "Common" },
             { "name": "Elven" }
         ],
-        "abilityScores": {
-            "dex": 2,
-            "wis": 2
-        },
+        "abilityScores": [
+            {
+                "name": "Dexterity",
+                "value": 2
+            },
+            {
+                "name": "Wisdom",
+                "value": 2
+            }
+        ],
         "skillBonus": [
             { "name": "Nature", "bonus": 2 },
             { "name": "Perception", "bonus": 2 }
@@ -178,10 +202,16 @@
             { "name": "Elven" },
             { "name": "Choice" }
         ],
-        "abilityScores": {
-            "con": 2,
-            "cha": 2
-        },
+        "abilityScores": [
+            {
+                "name": "Constitution",
+                "value": 2
+            },
+            {
+                "name": "Charisma",
+                "value": 2
+            }
+        ],
         "skillBonus": [
             { "name": "Diplomacy", "bonus": 2 },
             { "name": "Insight", "bonus": 2 }
@@ -216,10 +246,16 @@
             { "name": "Common" },
             { "name": "Choice" }
         ],
-        "abilityScores": {
-            "dex": 2,
-            "cha": 2
-        },
+        "abilityScores": [
+            {
+                "name": "Dexterity",
+                "value": 2
+            },
+            {
+                "name": "Charisma",
+                "value": 2
+            }
+        ],
         "skillBonus": [
             { "name": "Acrobatics", "bonus": 2 },
             { "name": "Thievery", "bonus": 2 }
@@ -251,9 +287,12 @@
             { "name": "Common" },
             { "name": "Choice" }
         ],
-        "abilityScores": {
-            "choice": 2
-        },
+        "abilityScores": [
+            {
+                "name": "Choice",
+                "value": 2
+            }
+        ],
         "traits": [
             {
                 "name": "Bonus At-Will Power",
@@ -277,5 +316,406 @@
                 "name": "Human Defense Bonuses",
                 "description": "+1 to Fortitude, Reflex, and Will defenses."
             }
+        ]
+    }
+    {
+        "name": "Tiefling",
+        "averageHeight": "5`6 - 6`2",
+        "averageWeight": "140 - 230 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "Low-light",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Choice" }
+        ],
+        "abilityScores": [
+            {
+                "name": "Intelligence",
+                "value": 2
+            },
+            {
+                "name": "Charisma",
+                "value": 2
+            }
+        ],
+        "traits": [
+            {
+                "name": "Bloodhunt",
+                "description": "You gain a +1 racial bonus to attack rolls against bloodied foes."
+            },
+            {
+                "name": "Fire Resistance",
+                "description": "You have resist fire 5 + one-half your level."
+            },
+            {
+                "name": "Infernal Wrath",
+                "description": "You can use Infernal Wrath as an encounter power.",
+                "power": "Infernal Wrath"
+            }
+        ],
+        "skillBonus": [
+            { "name": "Bluff", "bonus": 2 },
+            { "name": "Stealth", "bonus": 2 }
+        ]
+    }
+    {
+        "name": "Githzerai",
+        "averageHeight": "6'0 - 6`5",
+        "averageWeight": "160 - 190 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "Normal",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Deep Speech" }
+        ],
+        "abilityScores": [
+            { "name": "Wisdom", "value": 2 },
+            { "name": "Dexterity or Intelligence", "value": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Danger Sense",
+                "description": "You have a ·2 racial bonus to initiative checks"
+            },
+            {
+                "name": "Shifting Fortunes",
+                "description": "When you use your second wind, you can shift 3 squares as a free action"
+            },
+            {
+                "name": "Iron Mind",
+                "description": "You have the Iron Mind power.",
+                "power": "Iron Mind"
+            }
+        ],
+        "skillBonus": [
+            { "name": "Acrobatics", "bonus": 2 },
+            { "name": "Athletics", "bonus": 2 }
+        ]
+    }
+    {
+        "name": "Minotaur",
+        "averageHeight": "7'1 - 7'5",
+        "averageWeight": "320 - 350 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "Normal",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Choice" }
+        ],
+        "abilityScores": [
+            { "name": "Strength", "value": 2 },
+            { "name": "Constitution or Wisdom", "value": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Ferocity",
+                "description": "When you drop to 0 hit points or fewer. you can make a melee basic attack as an immediate interrupt."
+            },
+            {
+                "name": "Heedless Charge",
+                "description": "You have a +2 racial bonus to AC against opportunity attacks you provoke during a charge."
+            },
+            {
+                "name": "Goring Charge",
+                "description": "You have the Goring Charge power.",
+                "power": "Goring Charge"
+            }
+        ],
+        "skillBonus": [
+            { "name": "Nature", "bonus": 2 },
+            { "name": "Perception", "bonus": 2 }
+        ]
+    }
+    {
+        "name": "Shardmind",
+        "averageHeight": "5'9 - 6`2",
+        "averageWeight": "180 - 230 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "Normal",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Deep Speech" },
+            { "name": "Choice" }
+        ],
+        "abilityScores": [
+            { "name": "Intelligence", "value": 2 },
+            { "name": "Wisdom or Charisma", "value": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Telepathy",
+                "description": "You can communicate telepathically with any creature within 5 squares of you that has a language."
+            },
+            {
+                "name": "Crystalline Mind",
+                "description": "You have resist 5 psychic. The resistance increases to 10 at 11th level and 15 at 21st level."
+            },
+            {
+                "name": "Living Construct",
+                "description": "You are a living construct. You don't need to eat, drink. breathe. or sleep. You never have to make Endurance checks to resist the effects of starvation, thirst, or suffocation.",
+            },
+            {
+                "name": "Immortal Origin",
+                "description": "You are native to the Astral Sea. so you are considered an immortal creature for the purpose of effects that relate to creature origin.",
+            },
+            {
+                "name": "Shard Swarm",
+                "description": "You have the Shard Swarm power. ",
+                "power": "Shard Swarm"
+            }
+        ],
+        "skillBonus": [
+            { "name": "Arcana", "bonus": 2 },
+            { "name": "Endurance", "bonus": 2 },
+            { "name": "Choice", "bonus": 2 }
+        ]
+    }
+    {
+        "name": "Wilden",
+        "averageHeight": "5'6 - 5'9",
+        "averageWeight": "140 - 170 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "Low-light",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Elven" }
+        ],
+        "abilityScores": [
+            { "name": "Wisdom", "value": 2 },
+            { "name": "Constitution or Dexterity", "value": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Fey Origin",
+                "description": "You are native to the Feywild, so you are considered a fey creature for the purpose of effects that relate to creature origin."
+            },
+            {
+                "name": "Crystalline Mind",
+                "description": "You have resist 5 psychic. The resistance increases to 10 at 11th level and 15 at 21st level."
+            },
+            {
+                "name": "Hardy Form",
+                "description": "Choose FOrtitude, Reflex. or Will. You gain a +1 racial bonus to that defense.",
+            },
+            {
+                "name": "Nature's Aspect",
+                "description": "Whenever you complete an extended rest, choose one of the following aspects of nature to manifest. Aspect of the Ancients: You can use the voyoae of the oncienls power while you are in this aspecl. Aspect of the Destroyer: YOtl can use the wrath of the destroyer power while you are in this aspect. AspeCi of the Hunter: You can use the pursuit of the hunter power while you are in this aspect. ",
+            }
+        ],
+        "skillBonus": [
+            { "name": "Nature", "bonus": 2 },
+            { "name": "Stealth", "bonus": 2 }
+        ]
+    }
+    {
+        "name": "Deva",
+        "averageHeight": "6'1 - 6'6",
+        "averageWeight": "175 - 280 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "Normal",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Choice" },
+            { "name": "Choice" }
+        ],
+        "abilityScores": [
+            { "name": "Wisdom", "value": 2 },
+            { "name": "Intelligence", "value": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Astral Majesty",
+                "description": "You have a +1 bonus to all defenses against attacks made by bloodied creatures."
+            },
+            {
+                "name": "Astral Resistance",
+                "description": "You have resistance to necrotic damage and radiant damage equal to 5 + one-half your level."
+            },
+            {
+                "name": "Immortal Origin",
+                "description": "Your spirit is native to the Astral Sea, so you are considered an immortal creature for the purpose of effects that relate to creature origin.",
+            },
+            {
+                "name": "Memory of a Thousand Lifetimes",
+                "description": "You have the memory of a thousand lifetimes power.",
+                "power": "Memory of a Thousand Lifetimes"
+            }
+        ],
+        "skillBonus": [
+            { "name": "History", "bonus": 2 },
+            { "name": "Religion", "bonus": 2 }
+        ]
+    }
+    {
+        "name": "Gnome",
+        "averageHeight": "3'4 - 3'8",
+        "averageWeight": "50 - 75 lbs",
+        "size": "Small",
+        "speed": 5,
+        "vision": "Low-light",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Elven" }
+        ],
+        "abilityScores": [
+            { "name": "Intelligence", "value": 2 },
+            { "name": "Charisma", "value": 2 }
+        ],
+        "traits": [
+        {
+            "name": "Fey Origin",
+            "description": "Your ancestors were native to the Feywild, so you are considered a fey creature for the purpose of effects that relate to creature origin."
+        },
+        {
+            "name": "Master Trickster",
+            "description": "Once per encounter, you can use the wizard cantrip ghost sound as a minor action."
+        },
+        {
+            "name": "Reactive Stealth",
+            "description": "If you have any cover or concealment when you make an initiative check, you can make a Stealth check.",
+        },
+        {
+            "name": "Trickster’s Cunning",
+            "description": "You have a +5 racial bonus to saving throws against illusions.",
+        },
+        {
+            "name": "Fade Away",
+            "description": "You have the Fade Away power.",
+            "power": "Fade Away"
+        }
+        ],
+        "skillBonus": [
+            { "name": "Arcana", "bonus": 2 },
+            { "name": "Stealth", "bonus": 2 }
+        ]
+    }
+    {
+        "name": "Goliath",
+        "averageHeight": "7'2 - 7'8",
+        "averageWeight": "280 - 340 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "Normal",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Dwarven or Giant" }
+        ],
+        "abilityScores": [
+            { "name": "Strength", "value": 2 },
+            { "name": "Constitution", "value": 2 }
+        ],
+        "traits": [
+        {
+            "name": "Mountain’s Tenacity",
+            "description": "You have a +1 racial bonus to Will."
+        },
+        {
+            "name": "Powerful Athlete",
+            "description": "When you make an Athletics check to jump or climb, roll twice and use either result."
+        },
+        {
+            "name": "Stone’s Endurance",
+            "description": "You have the stone’s endurance power.",
+            "power": "Stone’s Endurance"
+        }
+        ],
+        "skillBonus": [
+            { "name": "Athletics", "bonus": 2 },
+            { "name": "Nature", "bonus": 2 }
+        ]
+    }
+    {
+        "name": "Half-Orc",
+        "averageHeight": "5'9 - 6'4",
+        "averageWeight": "155 - 225 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "Low-light",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Giant" }
+        ],
+        "abilityScores": [
+            { "name": "Strength", "value": 2 },
+            { "name": "Dexterity", "value": 2 }
+        ],
+        "traits": [
+            {
+                "name": "Half-Orc Resilience",
+                "description": "The first time you are blood- ied during an encounter, you gain 5 temporary hit points. The temporary hit points increase to 10 at 11th level and to 15 at 21st level."
+            },
+            {
+                "name": "Swift Charge",
+                "description": "You gain a +2 bonus to speed when charging."
+            },
+            {
+                "name": "Furious Assault",
+                "description": "You have the Furious Assault power.",
+                "power": "Furious Assault"
+            }
+        ],
+        "skillBonus": [
+            { "name": "Endurance", "bonus": 2 },
+            { "name": "Intimidate", "bonus": 2 }
+        ]
+    }
+    {
+        "name": "Longtooth Shifter",
+        "averageHeight": "5'7 - 6'0",
+        "averageWeight": "130 - 180 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "Low-light",
+        "languages": [
+        { "name": "Common" },
+        { "name": "Choice" }
+        ],
+        "abilityScores": [
+        { "name": "Strength", "value": 2 },
+        { "name": "Wisdom", "value": 2 }
+        ],
+        "traits": [
+        {
+            "name": "Longtooth Shifting",
+            "description": "You have the Longtooth Shifting power.",
+            "power": "Longtooth Shifting"
+        }
+        ],
+        "skillBonus": [
+            { "name": "Endurance", "bonus": 2 },
+            { "name": "Athletics", "bonus": 2 }
+        ]
+    }
+    {
+        "name": "Razorclaw Shifter",
+        "averageHeight": "5'7 - 6'0",
+        "averageWeight": "130 - 180 lbs",
+        "size": "Medium",
+        "speed": 6,
+        "vision": "Low-light",
+        "languages": [
+            { "name": "Common" },
+            { "name": "Choice" }
+        ],
+        "abilityScores": [
+            { "name": "Dexterity", "value": 2 },
+            { "name": "Wisdom", "value": 2 }
+        ],
+        "traits": [
+        {
+            "name": "Razorclaw Shifting",
+            "description": "You have the Razorclaw Shifting power.",
+            "power": "Razorclaw Shifting"
+        }
+        ],
+        "skillBonus": [
+            { "name": "Acrobatics", "bonus": 2 },
+            { "name": "Stealth", "bonus": 2 }
         ]
     }

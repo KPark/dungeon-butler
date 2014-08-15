@@ -8,9 +8,10 @@ exports.characters = function(req, res){
 
 exports.getCharacterList = function(db) {
     return (function(req, res) {
-        var username = req.body.username;
+        var username = req.body.userId;
         var collection = db.get('characters');
-        collection.find({"username": username}, {}, function(e, docs) {
+        collection.find({"userId": username}, {}, function(e, docs) {
+            console.log(docs);
             res.send(docs);
         });
     });
