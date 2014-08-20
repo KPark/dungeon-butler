@@ -36,11 +36,12 @@ dungeonButlerModule.factory('classSelection', ['$window', function (activeCharac
                 var ability = activeCharacter.abilityScores[j];
                 if (classAbility.name == ability.name) {
                     ability.class = classAbility.score;
+                    var abilityScore =  ability.base + ability.race + ability.class;
                     if (selectedClass.hitPoints.score == ability.name) {
-                        hp += getAbilityScore(ability);
+                        hp += abilityScore;
                     }
                     if (selectedClass.healingSurge.modifier == ability.name) {
-                        healingSurges += getAbilityModifier(ability);
+                        healingSurges += Math.floor(-5 + (abilityScore / 2));
                     }
                 }
             }

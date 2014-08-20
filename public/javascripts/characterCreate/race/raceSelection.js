@@ -50,7 +50,7 @@ dungeonButlerModule.factory('raceSelection', ['$window', function (activeCharact
         for (i = 0; i < race.skillBonus.length; i++) {
             var raceSkill = race.skillBonus[i];
             var hasSkill = false;
-            for (j = 0; j < activeCharacter.skills.length; i++) {
+            for (j = 0; j < activeCharacter.skills.length; j++) {
                 skill = activeCharacter.skills[j];
                 if (raceSkill.name == skill.name) {
                     skill.race = raceSkill.bonus;
