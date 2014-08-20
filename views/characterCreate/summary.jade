@@ -1,0 +1,131 @@
+table
+    tbody(class="summaryTable")
+        tr
+            td(colspan="4")
+                h2 Initiative
+        tr
+            td
+                span Score
+                br
+                span(ng-bind="getAbilityModifier(activeCharacter.abilityScores[2]) + getLeveLModifier()")
+            td
+                br
+                span Initiative
+            td
+                span Dex
+                br
+                span(ng-bind="getAbilityModifier(activeCharacter.abilityScores[2])")
+            td
+                span 1/2 Level
+                br
+                span(ng-bind="getLeveLModifier()")
+        tr
+            td(colspan="4")
+                h2 Ability Scores
+        tr
+            td Score
+            td Ability
+            td Ability Modifier
+            td Mod + 1/2 Level
+        tr(ng-repeat="abilityScore in activeCharacter.abilityScores")
+            td(ng-bind="getAbilityScore(abilityScore)")
+            td {{abilityScore.name}}
+            td(ng-bind="getAbilityModifier(abilityScore)")
+            td(ng-bind="getAbilityModifier(abilityScore) + getLeveLModifier()")
+        tr
+            td(colspan="4")
+                h2 Hit Points
+        tr
+            td(colspan="2" style="text-align: center;")
+                h4 HP
+            td(colspan="2" style="text-align: center;")
+                h4 Healing Surges
+        tr
+            td Max HP
+            td Bloodied (1/2 hp)
+            td Surge Value (1/4 hp)
+            td Surges/Day
+        tr
+            td {{activeCharacter.hp}}
+            td(ng-bind="getBloodied()")
+            td(ng-bind="getSurgeValue()")
+            td {{activeCharacter.healingSurges}}
+table
+    tbody(class="summaryTable")
+        tr
+            td(colspan="4")
+                h2 Skills
+        tr
+            td Bonus
+            td Skill Name
+            td Ability Mod + 1/2 Lvl
+            td
+            td Trained
+            td Armor Penalty
+            td Misc
+        tr(ng-repeat="skill in skills")
+            td
+                span(ng-show="isSkillTrained(skill)") &#x2713;
+            td {{skill.name}}
+            td(ng-bind="getSkillAbilityMod(skill)")
+            td {{skill.score}}
+            td
+                span(ng-show="isSkillTrained(skill)") 5
+                span(ng-show="!isSkillTrained(skill)") 0
+            td ?
+            td(ng-bind="getSkillMiscBonus(skill)")
+table
+    tbody(class="summaryTable")
+        tr
+            td(colspan="9")
+                h2 Defenses
+        tr
+            td Score
+            td Defense
+            td 10 + 1/2 Level
+            td Armor/Abil
+            td Class
+            td Feat
+            td Enh
+            td Misc
+            td Misc
+        tr
+            td ?
+            td AC
+            td(ng-bind="10 + getLeveLModifier()")
+            td ?
+            td ?
+            td ?
+            td ?
+            td ?
+            td ?
+        tr
+            td ?
+            td Fortitude
+            td(ng-bind="10 + getLeveLModifier()")
+            td(ng-bind="getFortitudeModifier()")
+            td {{activeCharacter.defenses.Fortitude}}
+            td ?
+            td ?
+            td ?
+            td ?
+        tr
+            td ?
+            td Reflex
+            td(ng-bind="10 + getLeveLModifier()")
+            td(ng-bind="getReflexModifier()")
+            td {{activeCharacter.defenses.Reflex}}
+            td ?
+            td ?
+            td ?
+            td ?
+        tr
+            td ?
+            td Will
+            td(ng-bind="10 + getLeveLModifier()")
+            td(ng-bind="getWillModifier()")
+            td {{activeCharacter.defenses.Will}}
+            td ?
+            td ?
+            td ?
+            td ?

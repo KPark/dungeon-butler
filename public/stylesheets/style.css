@@ -72,3 +72,19 @@ a {
     white-space: nowrap;
     color: white;
 }
+
+.jump_link {
+    border-radius: 0.5em;
+    border-style: inset;
+    border-color: blue;
+    background-color: #808080;
+    width: 15%;
+    color: black;
+    cursor: pointer;
+    padding: 0.5em;
+    display: inline-block;
+}
+
+.summaryTable td {
+    padding-right: 1em;
+}

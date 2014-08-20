@@ -1,5 +1,5 @@
-dungeonButlerControllers.controller('character-create-controller', ['$scope', '$routeParams', '$rootScope', '$http', '$location', '$cookies',
-        function ($scope, $routeParams, $rootScope, $http, $location, $cookies) {
+dungeonButlerModule.controller('character-create-controller', ['$scope', '$routeParams', '$http', '$location', 'raceSelection', 'classSelection',
+        function ($scope, $routeParams, $http, $location, raceSelection, classSelection) {
             $scope.characterTemplates = [];
             $scope.races = [];
             $scope.classes = [];
@@ -7,6 +7,25 @@ dungeonButlerControllers.controller('character-create-controller', ['$scope', '$
             $scope.currentTab = 'cc.races.html';
             $scope.currentRace = 'Dragonborn';
             $scope.currentClass = 'Paladin';
+            $scope.skills = [
+                { "name": "Acrobatics", score: "Dexterity" },
+                { "name": "Arcana", score: "Intelligence" },
+                { "name": "Athletics", score: "Strength" },
+                { "name": "Bluff", score: "Charisma" },
+                { "name": "Diplomacy", score: "Charisma" },
+                { "name": "Dungeoneering", score: "Wisdom" },
+                { "name": "Endurance", score: "Constitution" },
+                { "name": "Heal", score: "Wisdom" },
+                { "name": "History", score: "Intelligence" },
+                { "name": "Insight", score: "Wisdom" },
+                { "name": "Intimidate", score: "Charisma" },
+                { "name": "Nature", score: "Wisdom" },
+                { "name": "Perception", score: "Wisdom" },
+                { "name": "Religion", score: "Intelligence" },
+                { "name": "Stealth", score: "Dexterity" },
+                { "name": "Streetwise", score: "Charisma" },
+                { "name": "Thievery", score: "Dexterity" }
+            ];
 
             $scope.init = function () {
                 if ($routeParams.characterId != null) {
@@ -26,38 +45,53 @@ dungeonButlerControllers.controller('character-create-controller', ['$scope', '$
                 })
             }
             $scope.pickRace = function (race) {
-                $scope.activeCharacter.race = race.name;
-                setRaceAbilityScores(race);
-                setRacePowers(race);
-                setRaceSkills(race);
+                raceSelection($scope.activeCharacter, race);
                 $scope.currentTab = 'cc.classes.html';
             }
             $scope.pickBuild = function (build, selectedClass) {
-                var hp = selectedClass.hitPoints.base;
-                $scope.activeCharacter.class = $scope.currentClass;
-                setClassBuildSkills(build);
-                hp = setClassBuildAbilityScores(build, selectedClass, hp);
-                setClassBuildPowers(build);
-                $scope.activeCharacter.feats = [{ name: build.feat }];
-                $scope.activeCharacter.hp = hp;
+                classSelection($scope.activeCharacter, build, selectedClass);
             }
             $scope.getNextRace = function (index) {
+                if (index >= $scope.races.length) {
+                    index = 0;
+                } else if (index == -1) {
+                    index = $scope.races.length - 1;
+                }
                 var newValue = $scope.races[index].name;
                 $scope.currentRace = newValue;
             }
             $scope.getNextClass = function (index) {
+                if (index >= $scope.classes.length) {
+                    index = 0;
+                } else if (index == -1) {
+                    index = $scope.classes.length - 1;
+                }
                 var newValue = $scope.classes[index].name;
                 $scope.currentClass = newValue;
             }
+            $scope.goToRace = function (race) {
+                $scope.currentRace = race;
+            }
+            $scope.goToClass = function (className) {
+                $scope.currentClass = className;
+            }
             $scope.getAbilityScore = function (abilityScore) {
-                return abilityScore.base + abilityScore.race + abilityScore.class;
+                return getAbilityScore(abilityScore);
             }
             $scope.getAbilityModifier = function (scoreName) {
-                var score = $scope.getAbilityScore(scoreName);
-                var startingModifier = -5;
-                return Math.floor(startingModifier + (score / 2));
+                return getAbilityModifier(scoreName);
+            }
+            $scope.getLeveLModifier = function () {
+                return Math.floor($scope.activeCharacter.level / 2);
+            }
+            $scope.getBloodied = function () {
+                return Math.floor($scope.activeCharacter.hp / 2);
+            }
+            $scope.getSurgeValue = function () {
+                return Math.floor($scope.activeCharacter.hp / 4);
             }
             $scope.saveCharacter = function () {
+                console.log($scope.activeCharacter);
                 $http.post('/saveCharacterTemplate', $scope.activeCharacter).success(function (data) {
                     alert("Successfully saved character.");
                     $location.path('/characterCreate/' + $routeParams.userId + "/" + data._id);
@@ -69,6 +103,7 @@ dungeonButlerControllers.controller('character-create-controller', ['$scope', '$
                     name: "New Character",
                     level: 1,
                     hp: 0,
+                    healingSurges: 0,
                     abilityScores: [
                         { name: "Strength", base: 0, race: 0, class: 0 },
                         { name: "Constitution", base: 0, race: 0, class: 0 },
@@ -77,119 +112,53 @@ dungeonButlerControllers.controller('character-create-controller', ['$scope', '$
                         { name: "Wisdom", base: 0, race: 0, class: 0 },
                         { name: "Charisma", base: 0, race: 0, class: 0 }
                     ],
+                    defenses: {
+                        "Fortitude": 0,
+                        "Reflex": 0,
+                        "Will": 0
+                    },
                     powers: [ ],
                     skills: [ ],
                     feats: [ ]
+                }
+                if ($routeParams.characterId) {
+                    $scope.activeCharacter._id = $routeParams.characterId;
                 }
                 $scope.currentTab = 'cc.races.html';
             }
             $scope.goToCharacterSelect = function () {
                 $location.path('/characters/' + $routeParams.userId);
             }
-
-            function setRaceAbilityScores(race) {
+            $scope.isSkillTrained = function (skill) {
+                for (var i in $scope.activeCharacter.skills) {
+                    if (skill.name == $scope.activeCharacter.skills[i].name) {
+                        return $scope.activeCharacter.skills[i].trained == 5;
+                    }
+                }
+            }
+            $scope.getSkillAbilityMod = function (skill) {
                 for (var i in $scope.activeCharacter.abilityScores) {
-                    var ability = $scope.activeCharacter.abilityScores[i];
-                    ability.race = 0;
-                }
-                for (var i in race.abilityScores) {
-                    var raceAbility = race.abilityScores[i];
-                    for (var j in $scope.activeCharacter.abilityScores) {
-                        var ability = $scope.activeCharacter.abilityScores[j];
-                        if (raceAbility.name == ability.name) {
-                            ability.race = raceAbility.value;
-                        }
+                    if (skill.score == $scope.activeCharacter.abilityScores[i].name) {
+                        return getAbilityModifier($scope.activeCharacter.abilityScores[i]) + $scope.getLeveLModifier();
                     }
                 }
             }
-            function setRacePowers(race) {
-                for(var i = $scope.activeCharacter.powers.length - 1; i >= 0; i--) {
-                    if ($scope.activeCharacter.powers[i].type == 'Class') {
-                        $scope.activeCharacter.powers.splice(i, 1);
+            $scope.getSkillMiscBonus = function (skill) {
+                for (var i in $scope.activeCharacter.skills) {
+                    if (skill.name == $scope.activeCharacter.skills[i].name) {
+                        return $scope.activeCharacter.skills[i].race;
                     }
                 }
-                for (var i in race.traits) {
-                    var trait = race.traits[i];
-                    if (trait.power) {
-                        $scope.activeCharacter.powers.push({ name: trait.power, type: 'Class' });
-                    }
-                }
+                return 0;
             }
-            function setRaceSkills(race) {
-                if ($scope.activeCharacter.class) {
-                    for (var i in $scope.activeCharacter.skills) {
-                        var skill = $scope.activeCharacter.skills[i];
-                        skill.race = 0;
-                        if (skill.race + skill.trained == 0) {
-                            $scope.activeCharacter.skills.splice(i, 1);
-                        }
-                    }
-                } else {
-                    $scope.activeCharacter.skills = [];
-                }
-                for (var i in race.skillBonus) {
-                    var raceSkill = race.skillBonus[i];
-                    var hasSkill = false;
-                    for (var j in $scope.activeCharacter.skills) {
-                        var skill = $scope.activeCharacter.skills[j];
-                        if (raceSkill.name == skill.name) {
-                            skill.race = raceSkill.bonus;
-                            hasSkill = true;
-                        }
-                    }
-                    if (!hasSkill) {
-                        $scope.activeCharacter.skills.push({name: raceSkill.name, race: raceSkill.bonus, trained: 0});
-                    }
-                }
+            $scope.getFortitudeModifier = function () {
+                return Math.max(getAbilityModifier($scope.activeCharacter.abilityScores[0]), getAbilityModifier($scope.activeCharacter.abilityScores[1]));
             }
-            function setClassBuildSkills(build) {
-                for (var j = $scope.activeCharacter.skills.length - 1; j >= 0; j--) {
-                    var skill = $scope.activeCharacter.skills[j];
-                    skill.trained = 0;
-                    if (skill.trained + skill.race == 0) {
-                        $scope.activeCharacter.skills.splice(j, 1);
-                    }
-                }
-                for (var i in build.skills) {
-                    var classSkill = build.skills[i];
-                    var hasSkill = false;
-                    for (var j in $scope.activeCharacter.skills) {
-                        var skill = $scope.activeCharacter.skills[j];
-                        if (classSkill.name == skill.name) {
-                            skill.trained = 5;
-                            hasSkill = true;
-                        }
-                    }
-                    if (!hasSkill) {
-                        $scope.activeCharacter.skills.push({name: classSkill.name, race: 0, trained: 5});
-                    }
-                }
+            $scope.getReflexModifier = function () {
+                return Math.max(getAbilityModifier($scope.activeCharacter.abilityScores[2]), getAbilityModifier($scope.activeCharacter.abilityScores[3]));
             }
-            function setClassBuildAbilityScores(build, selectedClass, hp) {
-                for (var i in build.abilityScores) {
-                    var classAbility = build.abilityScores[i];
-                    for (var j in $scope.activeCharacter.abilityScores) {
-                        var ability = $scope.activeCharacter.abilityScores[j];
-                        if (classAbility.name == ability.name) {
-                            ability.class = classAbility.score;
-                            if (selectedClass.hitPoints.score == ability.name) {
-                                hp += $scope.getAbilityScore(ability);
-                            }
-                        }
-                    }
-                }
-                return hp;
-            }
-            function setClassBuildPowers(build) {
-                for(var i = $scope.activeCharacter.powers.length - 1; i >= 0; i--) {
-                    if ($scope.activeCharacter.powers[i].type !== 'Class') {
-                        $scope.activeCharacter.powers.splice(i, 1);
-                    }
-                }
-                for (var i in build.powers) {
-                    var power = build.powers[i];
-                    $scope.activeCharacter.powers.push({ name: power.name });
-                }
+            $scope.getWillModifier = function () {
+                return Math.max(getAbilityModifier($scope.activeCharacter.abilityScores[4]), getAbilityModifier($scope.activeCharacter.abilityScores[5]));
             }
         }
     ]

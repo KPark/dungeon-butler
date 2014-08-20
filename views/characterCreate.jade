@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    div(ng-controller="character-create-controller", ng-init="init()" style="width: 100%; height: 100%;")
+    div(ng-controller="character-create-controller", ng-init="init()" style="width: 100%; height: 95%;")
         table(style="width: 100%; height: 100%;")
             tbody(style="width: 100%; height: 100%;")
                 tr
@@ -36,145 +36,14 @@ block content
                         div(style="height: 6em; overflow: auto;")
                             div(ng-repeat="skill in activeCharacter.skills") {{skill.name}} - {{skill.race + skill.trained}}
                     td(style="background-color: black; color: white; height: 100%; overflow: auto; width: 100%")
-                        div(ng-include="currentTab" style="height: 100%;")
-            tfoot
-                tr
-                    td(colspan="2" style="width: 100%;")
-                        button(href="javascript: void(0)" ng-click="currentTab = 'cc.races.html'") Race
-                        span &nbsp;&nbsp;
-                        button(href="javascript: void(0)" ng-click="currentTab = 'cc.classes.html'") Class
+                        div(ng-include="currentTab" style="height: 100%; overflow: auto;")
+        div(style="height: 2em;")
+            div(ng-click="currentTab = 'cc.races.html'" class="jump_link") Race
+            div(ng-click="currentTab = 'cc.classes.html'" class="jump_link") Class
+            div(ng-click="currentTab = 'cc.summary.html'" class="jump_link") Summary
         script(type="text/ng-template" id="cc.races.html")
-            div(ng-repeat="t in races" style="height: 100%;" class="race_select" ng-hide="currentRace != t.name")
-                table(style="width: 100%; height: 100%; vertical-align: top;")
-                    tbody
-                        tr
-                            td(style="vertical-align: top; width: 60%")
-                                h2(style="color: white;") Name: {{t.name}}
-                                div(ng-repeat="trait in t.traits")
-                                    h2 {{trait.name}}
-                                    div {{trait.description}}
-                            td(rowspan="2" style="text-align: right; padding-right: 1em; vertical-align: top; width: 40%;")
-                                table(style="width: 100%;")
-                                    tr
-                                        td
-                                            h2 Average Height
-                                        td
-                                            {{t.averageHeight}}
-                                    tr
-                                        td
-                                            h2 Average Weight
-                                        td
-                                            {{t.averageWeight}}
-                                    tr
-                                        td
-                                            h2 Size
-                                        td
-                                            {{t.size}}
-                                    tr
-                                        td
-                                            h2 Speed
-                                        td
-                                            {{t.speed}}
-                                    tr
-                                        td
-                                            h2 Vision
-                                        td
-                                            {{t.vision}}
-                                    tr
-                                        td
-                                            h2 Languages
-                                        td
-                                            span(ng-repeat="language in t.languages")
-                                                {{language.name}}
-                                                br
-                                    tr
-                                        td
-                                            h2 Skills
-                                        td
-                                            span(ng-repeat="skill in t.skillBonus")
-                                                {{skill.name}}: {{skill.bonus}}
-                                                br
-                                    tr
-                                        td
-                                            h2 Ability Bonuses
-                                        td
-                                            span(ng-repeat="ability in t.abilityScores")
-                                                {{ability.name}}:&nbsp;{{ability.value}}
-                                                br
-                    tfoot
-                        tr
-                            td
-                                button(href='javascript: void(0)' ng-click="pickRace(t)") Yeah!  This is me!
-                            td(style="text-align: right;")
-                                button(href="javascript: void(0)" ng-click="getNextRace($index - 1)") Previous
-                                button(href="javascript: void(0)" ng-click="getNextRace($index + 1)") Next
+            include characterCreate/races
         script(type="text/ng-template" id="cc.classes.html")
-            div(ng-repeat="t in classes" style="height: 100%;" class="class_select" ng-hide="currentClass != t.name")
-                table(style="width: 100%; height: 100%; vertical-align: top;")
-                    tbody
-                        tr
-                            td(style="vertical-align: top; width: 60%")
-                                h2(style="color: white;") Name: {{t.name}}
-                                div(ng-repeat="build in t.builds")
-                                    button(ng-click="pickBuild(build, t)") {{build.name}}
-                            td(rowspan="2" style="text-align: right; padding-right: 1em; vertical-align: top; width: 40%;")
-                                table(style="width: 100%;")
-                                    tr
-                                        td
-                                            h2 Power Source
-                                        td
-                                            {{t.powerSource}}
-                                    tr
-                                        td
-                                            h2 Armor Proficiencies
-                                        td
-                                            span(ng-repeat="armor in t.armorProficiencies")
-                                                {{armor.name}}
-                                                br
-                                    tr
-                                        td
-                                            h2 Weapon Proficiencies
-                                        td
-                                            span(ng-repeat="weapon in t.weaponProficiencies")
-                                                {{weapon.name}}
-                                                br
-                                    tr
-                                        td
-                                            h2 Implements
-                                        td
-                                            span(ng-repeat="implement in t.implements")
-                                                {{implement.name}}
-                                                br
-                                    tr
-                                        td
-                                            h2 Skills
-                                        td
-                                            div(style="height: 5em; overflow: auto;")
-                                                span(ng-repeat="skill in t.skills")
-                                                    {{skill.name}}
-                                                    br
-                                    tr
-                                        td
-                                            h2 Class Powers
-                                        td
-                                            span(ng-repeat="power in t.powers")
-                                                {{power.name}}
-                                                br
-                                    tr
-                                        td
-                                            h2 Hit Points
-                                        td
-                                            {{t.hitPoints.base}} + {{t.hitPoints.score}} Score
-                                            br
-                                            {{t.hitPoints.level}} Per Level
-                                    tr
-                                        td
-                                            h2 Healing Surges
-                                        td
-                                            {{t.healingSurge.base}} + {{t.healingSurge.modifier}} Modifier
-                    tfoot
-                        tr
-                            td
-                            td(style="text-align: right;")
-                                button(href="javascript: void(0)" ng-click="getNextClass($index - 1)") Previous
-                                button(href="javascript: void(0)" ng-click="getNextClass($index + 1)") Next
+            include characterCreate/classes
+        script(type="text/ng-template" id="cc.summary.html")
+            include characterCreate/summary
