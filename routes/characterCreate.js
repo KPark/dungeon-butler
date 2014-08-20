@@ -13,7 +13,7 @@ exports.getRaces = function(db) {
             res.send(docs);
         });
     });
-}
+};
 
 exports.getClasses = function(db) {
     return (function(req, res) {
@@ -22,20 +22,32 @@ exports.getClasses = function(db) {
             res.send(docs);
         });
     });
-}
+};
 
 exports.saveCharacterTemplate = function(db) {
     return (function(req, res) {
         var character = req.body;
         var collection = db.get("characters");
         if (character._id) {
-            collection.update({ "_id": character._id}, character, {}, function(e, docs) {
-                res.send(docs);
+            collection.update({ "_id": character._id}, character, {}, function(e) {
+                if (e != null) {
+                    console.log("An error occurred while saving the character template: " + e);
+                    console.log(character);
+                    res.send("Unexpected Error");
+                } else {
+                    res.send({'_id': character._id});
+                }
             });
         } else {
             collection.insert(character, {}, function(e, docs) {
-                res.send(docs);
+                if (e != null) {
+                    console.log("An error occurred while inserting the character template: " + e);
+                    console.log(character);
+                    res.send("Unexpected Error");
+                } else {
+                    res.send(docs);
+                }
             });
         }
-    })
-}
+    });
+};

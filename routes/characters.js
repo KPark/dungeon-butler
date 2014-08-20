@@ -23,4 +23,4 @@ exports.getCharacter = function(db) {
             res.send(docs);
         });
     });
-}
+};

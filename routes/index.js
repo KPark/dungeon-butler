@@ -6,7 +6,7 @@ exports.index = function(req, res){
 
 exports.loginForm = function(req, res) {
     res.render('login', { title: 'Dungeon Butler' });
-}
+};
 
 exports.login = function(db) {
     return (function(req, res) {
@@ -43,7 +43,7 @@ exports.login = function(db) {
             });
         }
     });
-}
+};
 
 exports.register = function(db) {
     return (function(req, res) {
@@ -57,4 +57,4 @@ exports.register = function(db) {
             res.send(docs[0]);
         });
     });
-}
+};

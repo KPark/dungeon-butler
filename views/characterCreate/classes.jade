@@ -1,73 +1,66 @@
-div(ng-repeat="t in classes" style="height: 80%;" class="class_select" ng-hide="currentClass != t.name")
-    table(style="width: 100%; height: 100%; vertical-align: top;")
-        tbody
-            tr
-                td(style="vertical-align: top; width: 60%")
-                    h2(style="color: white;") Name: {{t.name}}
-                    div(ng-repeat="build in t.builds")
-                        button(ng-click="pickBuild(build, t)") {{build.name}}
-                td(rowspan="2" style="text-align: right; padding-right: 1em; vertical-align: top; width: 40%;")
-                    table(style="width: 100%;")
-                        tr
-                            td
-                                h2 Power Source
-                            td
-                                {{t.powerSource}}
-                        tr
-                            td
-                                h2 Armor Proficiencies
-                            td
-                                span(ng-repeat="armor in t.armorProficiencies")
-                                    {{armor.name}}
-                                    br
-                        tr
-                            td
-                                h2 Weapon Proficiencies
-                            td
-                                span(ng-repeat="weapon in t.weaponProficiencies")
-                                    {{weapon.name}}
-                                    br
-                        tr
-                            td
-                                h2 Implements
-                            td
-                                span(ng-repeat="implement in t.implements")
-                                    {{implement.name}}
-                                    br
-                        tr
-                            td
-                                h2 Skills
-                            td
-                                div(style="height: 5em; overflow: auto;")
-                                    span(ng-repeat="skill in t.skills")
-                                        {{skill.name}}
+div(ng-controller="class-controller")
+    div(ng-repeat="t in classes" style="height: 80%;" class="class_select" ng-hide="currentClass != t.name")
+        table(style="width: 100%; height: 100%; vertical-align: top;")
+            tbody
+                tr
+                    td(style="vertical-align: top; width: 60%")
+                        h2(style="color: white;") Name: {{t.name}}
+                        div(ng-repeat="build in t.builds")
+                            button(ng-click="pickBuild(build, t)") {{build.name}}
+                    td(rowspan="2" style="text-align: right; padding-right: 1em; vertical-align: top; width: 40%;")
+                        table(style="width: 100%;")
+                            tr
+                                td
+                                    h2 Power Source
+                                td {{t.powerSource}}
+                            tr
+                                td
+                                    h2 Armor Proficiencies
+                                td
+                                    span(ng-repeat="armor in t.armorProficiencies") {{armor.name}}
                                         br
-                        tr
-                            td
-                                h2 Class Powers
-                            td
-                                span(ng-repeat="power in t.powers")
-                                    {{power.name}}
+                            tr
+                                td
+                                    h2 Weapon Proficiencies
+                                td
+                                    span(ng-repeat="weapon in t.weaponProficiencies") {{weapon.name}}
+                                        br
+                            tr
+                                td
+                                    h2 Implements
+                                td
+                                    span(ng-repeat="implement in t.implements") {{implement.name}}
+                                        br
+                            tr
+                                td
+                                    h2 Skills
+                                td
+                                    div(style="height: 5em; overflow: auto;")
+                                        span(ng-repeat="skill in t.skills") {{skill.name}}
+                                            br
+                            tr
+                                td
+                                    h2 Class Powers
+                                td
+                                    span(ng-repeat="power in t.powers") {{power.name}}
+                                        br
+                            tr
+                                td
+                                    h2 Hit Points
+                                td {{t.hitPoints.base}} + {{t.hitPoints.score}} Score
                                     br
-                        tr
-                            td
-                                h2 Hit Points
-                            td
-                                {{t.hitPoints.base}} + {{t.hitPoints.score}} Score
-                                br
-                                {{t.hitPoints.level}} Per Level
-                        tr
-                            td
-                                h2 Healing Surges
-                            td
-                                {{t.healingSurge.base}} + {{t.healingSurge.modifier}} Modifier
-        tfoot
-            tr
-                td
-                td(style="text-align: right;")
-                    button(href="javascript: void(0)" ng-click="getNextClass($index - 1)") Previous
-                    button(href="javascript: void(0)" ng-click="getNextClass($index + 1)") Next
-div(style="margin-top: 1em;")
-    span(ng-repeat="t in classes" style="height: 2em;")
-        div(ng-click="goToClass(t.name)" class="jump_link") {{t.name}}
-        br(ng-show="($index + 1) % 6 == 0")
+                                    span {{t.hitPoints.level}} Per Level
+                            tr
+                                td
+                                    h2 Healing Surges
+                                td {{t.healingSurge.base}} + {{t.healingSurge.modifier}} Modifier
+            tfoot
+                tr
+                    td
+                    td(style="text-align: right;")
+                        button(href="javascript: void(0)" ng-click="getNextClass($index - 1)") Previous
+                        button(href="javascript: void(0)" ng-click="getNextClass($index + 1)") Next
+    div(style="margin-top: 1em;")
+        span(ng-repeat="t in classes" style="height: 2em;")
+            div(ng-click="goToClass(t.name)" class="jump_link") {{t.name}}
+            br(ng-show="($index + 1) % 6 == 0")

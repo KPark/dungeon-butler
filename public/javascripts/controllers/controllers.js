@@ -37,7 +37,7 @@ var dungeonButlerModule = angular.module('dungeon-butler-controllers', []);
 dungeonButlerModule.controller('login-controller', ['$scope', '$rootScope', '$http', '$location', '$cookies',
         function ($scope, $rootScope, $http, $location, $cookies) {
             $scope.login = function () {
-                var data = { "username": $scope.usernameInput, "password": $scope.passwordInput }
+                var data = { "username": $scope.usernameInput, "password": $scope.passwordInput };
                 $http.post('/login', data).success(function (data) {
                     $location.path('/characters/' + data.username);
                     $cookies.sessionId = data.sessionId;
@@ -58,7 +58,7 @@ dungeonButlerModule.controller('character-controller', ['$scope', '$routeParams'
             }
             $scope.newCharacter = function () {
                 $location.path('/characterCreate/' + $routeParams.username);
-            }
+            };
             $scope.showCharacter = function (characterId) {
                 $location.path('/characterCreate/' + $routeParams.username + "/" + characterId);
             }

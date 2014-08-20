@@ -10,6 +10,10 @@ block content
                         button(ng-click="resetCharacter()") Reset
                         button(ng-click="goToCharacterSelect()") Character Select
                         input(ng-model="activeCharacter.name" style="width: 100%")
+                        label(for="gender_select") Gender:&nbsp;
+                        select(ng-model="activeCharacter.gender" id="gender_select")
+                            option Male
+                            option Female
                         br
                         div {{activeCharacter.race}} {{activeCharacter.class}} Lv. {{activeCharacter.level}}
                         br

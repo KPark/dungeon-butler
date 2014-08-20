@@ -103,7 +103,7 @@ table
             td ?
             td Fortitude
             td(ng-bind="10 + getLeveLModifier()")
-            td(ng-bind="getFortitudeModifier()")
+            td(ng-bind="getDefenseModifier(activeCharacter.abilityScores[0], activeCharacter.abilityScores[1])")
             td {{activeCharacter.defenses.Fortitude}}
             td ?
             td ?
@@ -113,7 +113,7 @@ table
             td ?
             td Reflex
             td(ng-bind="10 + getLeveLModifier()")
-            td(ng-bind="getReflexModifier()")
+            td(ng-bind="getDefenseModifier(activeCharacter.abilityScores[2], activeCharacter.abilityScores[3])")
             td {{activeCharacter.defenses.Reflex}}
             td ?
             td ?
@@ -123,7 +123,7 @@ table
             td ?
             td Will
             td(ng-bind="10 + getLeveLModifier()")
-            td(ng-bind="getWillModifier()")
+            td(ng-bind="getDefenseModifier(activeCharacter.abilityScores[4], activeCharacter.abilityScores[5])")
             td {{activeCharacter.defenses.Will}}
             td ?
             td ?
