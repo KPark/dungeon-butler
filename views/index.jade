@@ -1,5 +1,21 @@
 extends layout
 
 block content
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='stylesheets/jquery-ui.min.css')
+    script(src="http://code.jquery.com/jquery-1.9.1.js")
+    script(src="http://code.jquery.com/ui/1.10.2/jquery-ui.js")
+    script(type='text/javascript', src='angular/angular.min.js')
+    script(type='text/javascript', src='angular-route/angular-route.js')
+    script(type='text/javascript', src='angular-cookies/angular-cookies.js')
+    script(type="text/javascript" src="javascripts/controllers/controllers.js")
+    script(type="text/javascript" src="javascripts/directives/uiButton.js")
+    script(type="text/javascript" src="javascripts/directives/hover.js")
+    // Character creation
+    script(type="text/javascript" src="javascripts/characterCreate/race/raceSelection.js")
+    script(type="text/javascript" src="javascripts/characterCreate/race/raceController.js")
+    script(type="text/javascript" src="javascripts/characterCreate/class/classSelection.js")
+    script(type="text/javascript" src="javascripts/characterCreate/class/classController.js")
+    script(type="text/javascript" src="javascripts/characterCreate/characterCreateController.js")
     #loginWindow(ng-app='dungeon-butler' style="width: 100%; height: 100%;")
         div(ng-view style="width: 100%; height: 100%;")
