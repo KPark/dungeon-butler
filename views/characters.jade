@@ -1,8 +1,9 @@
-extends layout
-
-block content
-    div(ng-controller="character-controller", style="width: 50%")
-        h2(style="text-align: center") Character Templates
-            button(class="header_button", ng-click="newCharacter()") + New
-        div(ng-repeat="t in characterTemplates" style="border: 3px solid black; width: 45%; display: inline-block;")
-            a(href="javascript: void(0)" ng-click="showCharacter(t._id)") {{t.name}}
+div(ng-controller="character-controller" style="width: 100%; height: 100%;" class='ui-widget-content')
+    div(style="text-align: center; margin-top: 1em;" class='ui-widget-header')
+        span(style="margin-right: 1em;") Characters
+        jq-button(ng-click="newCharacter()" id="new-character-button" value="+ New")
+    div(ng-repeat="t in characterTemplates" class='ui-state-hover ui-corner-all' style='margin: 0.5%; padding: 1em; cursor: pointer; width: 46%; display: inline-block;' ng-click="showCharacter(t._id)" hover-class='ui-state-active')
+        div(style="width: 100%; display: table;")
+            div(style="display: table-cell;") {{t.name}}, {{t.race}} {{t.class}}
+            div(style="display: table-cell; text-align: right;")
+                jq-button(ng-click="deleteCharacter(t._id)" id="delete-button" value="Delete")

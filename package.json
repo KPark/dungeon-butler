@@ -17,9 +17,7 @@
         "jade": "~1.3.0",
         "mongodb": "*",
         "monk": "*",
-        "password-hash": "*",
-        "jquery": "*",
-        "jquery-ui": "*"
+        "password-hash": "*"
     },
     "scripts": {
         "postinstall": "bower install",

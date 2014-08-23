@@ -8,51 +8,29 @@ var dungeonButlerApp = angular.module('dungeon-butler', [
     'dungeon-butler-controllers'
 ]);
 
-dungeonButlerApp.config(['$routeProvider',
-    function ($routeProvider) {
+dungeonButlerApp.config(['$routeProvider', '$locationProvider',
+    function ($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/characters/:username', {
+            .when('/characters', {
                 templateUrl: 'characters',
                 controller: 'character-controller'
             })
-            .when('/loginForm', {
-                templateUrl: 'loginForm',
-                controller: 'login-controller'
-            })
-            .when('/characterCreate/:userId/:characterId', {
+            .when('/characterCreate/:characterId', {
                 templateUrl: 'characterCreate',
                 controller: 'character-create-controller'
             })
             .when('/characterCreate/:userId', {
                 templateUrl: 'characterCreate',
                 controller: 'character-create-controller'
-            })
-            .otherwise({
-                redirectTo: '/loginForm'
             });
     }]);
 
 var dungeonButlerModule = angular.module('dungeon-butler-controllers', []);
 
-dungeonButlerModule.controller('login-controller', ['$scope', '$rootScope', '$http', '$location', '$cookies',
-        function ($scope, $rootScope, $http, $location, $cookies) {
-            $scope.login = function () {
-                var data = { "username": $scope.usernameInput, "password": $scope.passwordInput };
-                $http.post('/login', data).success(function (data) {
-                    $location.path('/characters/' + data.username);
-                    $cookies.sessionId = data.sessionId;
-                });
-            };
-            $scope.usernameInput = "";
-            $scope.passwordInput = "";
-            $rootScope.loggedInUser = { userName: "No User" };
-        }]
-);
-
 dungeonButlerModule.controller('character-controller', ['$scope', '$routeParams', '$rootScope', '$http', '$location', '$cookies',
         function ($scope, $routeParams, $rootScope, $http, $location, $cookies) {
-            if ($routeParams.username != "No User") {
-                $http.post('/getCharacterList', { "userId": $routeParams.username }).success(function (data) {
+            if ($cookies.loggedInUser != "No User") {
+                $http.post('/getCharacterList', { "userId": $cookies.loggedInUser }).success(function (data) {
                     $scope.characterTemplates = data;
                 })
             }
@@ -60,8 +38,11 @@ dungeonButlerModule.controller('character-controller', ['$scope', '$routeParams'
                 $location.path('/characterCreate/' + $routeParams.username);
             };
             $scope.showCharacter = function (characterId) {
-                $location.path('/characterCreate/' + $routeParams.username + "/" + characterId);
-            }
+                $location.path('/characterCreate/' + characterId);
+            };
+            $scope.deleteCharacter = function (characterId) {
+                alert("Not implemented yet.");
+            };
         }
     ]
 );

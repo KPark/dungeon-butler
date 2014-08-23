@@ -11,6 +11,7 @@ exports.getCharacterList = function(db) {
         var username = req.body.userId;
         var collection = db.get('characters');
         collection.find({"userId": username}, {}, function(e, docs) {
+            console.log("getCharacterList: " + req.body.userId + ", " + docs);
             res.send(docs);
         });
     });

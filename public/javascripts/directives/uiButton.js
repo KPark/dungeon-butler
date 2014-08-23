@@ -5,7 +5,11 @@ dungeonButlerModule.directive('jqButton', function ($parse) {
         transclude: false,
         compile: function (element, attrs) {
             var action = $parse(attrs.ngClick);
-            var html = "<button id='" + attrs.id + "'>" + attrs.value + "</button>";
+            var value = attrs.value;
+            if (attrs.ngBind) {
+                var value = $parse(attrs.ngBind);
+            }
+            var html = "<button id='" + attrs.id + "' style='" + attrs.style + "'>" + value + "</button>";
             var newElement = $(html);
             element.replaceWith(newElement);
 

@@ -1,15 +1,9 @@
-div(ng-controller="login-controller" class="ui-widget" style="height: 100%;")
-    table.existingForm(ng-show="loggedInUser.userName == 'No User'",class='ui-widget-content' style="margin: auto; top: 0; left: 0; bottom: 0; right: 0; position: absolute; height: 5em; width: 10em;")
-        tr
-            td
-                label(for = 'usernameInput',style='display: table-cell;') Username
-            td
-                input#usernameInput(type="text", ng-model="usernameInput", class="ui-state-default" hover-class="ui-state-hover")
-        tr
-            td
-                label(for = "passwordInput") Password
-            td
-                input#passwordInput(type="password", ng-model="passwordInput", class="ui-state-default" hover-class="ui-state-hover")
-        tr
-            td(colspan="2" style="text-align: right;")
-                jq-button(ng-click="login()" id="login-button" value="Login") Login
+form#loginForm(ng-controller="login-controller" class="ui-widget")
+    div(ng-hide="loggedInUser !== undefined", class='ui-widget-content')
+        div(style='display: table-row')
+            label(for = 'usernameInput', style='display: table-cell;') Username
+            input#usernameInput(type="text", ng-model="usernameInput", class="ui-state-default" hover-class="ui-state-hover" style='display: table-cell;')
+        div(style='display: table-row')
+            label(for = "passwordInput" style='display: table-cell;') Password
+            input#passwordInput(type="password", ng-model="passwordInput", class="ui-state-default" hover-class="ui-state-hover" style='display: table-cell;')
+        jq-button(ng-click="login()" id="login-button" value="Login") Login
