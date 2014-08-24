@@ -1,0 +1,191 @@
+{
+    'name': 'Bolstering Strike',
+    'type': 'at-will',
+    'flavor-text': 'You attack your foe without mercy or reprieve, and your accuracy is rewarded with a divine gift of vigor.',
+    'requirements': { 'level': 1, 'class': 'Paladin' },
+    'powerSource': 'Divine',
+    'accessories': [ { 'name': 'Weapon' } ],
+    'actionType': 'Standard',
+    'range': 'Melee weapon',
+    'target': 'One creature',
+    'attack': { 'attack': 'Charisma', 'defense': 'AC' },
+    'hit': { base: '1[W]', modifier: 'Charisma', 'bonus': 'You gain temporary hit points equal to your Wisdom modifier' }
+}
+{
+    'name': 'Enfeebling Strike',
+    'type': 'at-will',
+    'flavor-text': 'Your brutal weapon attack leaves your foe weakened.',
+    'requirements': { 'level': 1, 'class': 'Paladin' },
+    'powerSource': 'Divine',
+    'accessories': [ { 'name': 'Weapon' } ],
+    'actionType': 'Standard',
+    'range': 'Melee weapon',
+    'target': 'One creature',
+    'attack': { 'attack': 'Charisma', 'defense': 'AC' },
+    'hit': { 'base': '1[W]', modifier: 'Charisma', 'bonus': 'If you marked the target, it takes a -2 penalty to attack rolls until the end of your next turn.'}
+}
+{
+    'name': 'Holy Strike',
+    'type': 'at-will',
+    'flavor-text': 'You strike an enemy with your weapon, which ignites with holy light.',
+    'requirements': { 'level': 1, 'class': 'Paladin' },
+    'powerSource': 'Divine',
+    'damageType': 'Radiant',
+    'accessories': [ { 'name': 'Weapon' } ],
+    'actionType': 'Standard',
+    'range': 'Melee weapon',
+    'target': 'One creature',
+    'attack': { 'attack': 'Strength', 'defense': 'AC' },
+    'hit': { 'base': '1[W]', modifier: 'Strength', 'bonus': 'If you marked the target, you gain a bonus to the damage roll equal to your Wisdom modifier.'}
+}
+{
+    'name': 'Valiant Strike',
+    'type': 'at-will',
+    'flavor-text': 'As you bring your weapon to bear, the odds against you add strength to your attack.',
+    'requirements': { 'level': 1, 'class': 'Paladin' },
+    'powerSource': 'Divine',
+    'accessories': [ { 'name': 'Weapon' } ],
+    'actionType': 'Standard',
+    'range': 'Melee weapon',
+    'target': 'One creature',
+    'attack': { 'attack': 'Strength', 'defense': 'AC', 'bonus': '+1 per enemy adjacent to you' },
+    'hit': { 'base': '1[W]', modifier: 'Strength'}
+}
+{
+    'name': 'Fearsome Smite',
+    'type': 'encounter',
+    'flavor-text': 'When you strike a foe with your weapon, the force of the blow causes him to shudder and second-guess his tactics.',
+    'requirements': { 'level': 1, 'class': 'Paladin' },
+    'powerSource': 'Divine',
+    'effectType': 'Fear',
+    'accessories': [ { 'name': 'Weapon' } ],
+    'actionType': 'Standard',
+    'range': 'Melee weapon',
+    'target': 'One creature',
+    'attack': { 'attack': 'Charisma', 'defense': 'AC' },
+    'hit': { 'base': '2[W]', modifier: 'Charsima', 'bonus': 'Until the end of your next turn, the target takes a penalty to attack rolls equal to your Wisdom modifier.' }
+}
+{
+    'name': 'Piercing Smite',
+    'type': 'encounter',
+    'flavor-text': "Silvery spikes cover your weapon, punching through your foe's armor.",
+    'requirements': { 'level': 1, 'class': 'Paladin' },
+    'powerSource': 'Divine',
+    'accessories': [ { 'name': 'Weapon' } ],
+    'actionType': 'Standard',
+    'range': 'Melee weapon',
+    'target': 'One creature',
+    'attack': { 'attack': 'Strength', 'defense': 'Reflex' },
+    'hit': { 'base': '2[W]', modifier: 'Strength', 'bonus': 'The target and a number of enemies adjacent to you equal to your Wisdom modifier are marked until the end of your next turn.' }
+}
+{
+    'name': 'Radiant Smite',
+    'type': 'encounter',
+    'flavor-text': "Your weapon glows with a pearly luminescence.  Enemies shrink from its pure light, especially creatures of supernatural evil such as demons and devils.",
+    'requirements': { 'level': 1, 'class': 'Paladin' },
+    'powerSource': 'Divine',
+    'damageType': 'Radiant',
+    'accessories': [ { 'name': 'Weapon' } ],
+    'actionType': 'Standard',
+    'range': 'Melee weapon',
+    'target': 'One creature',
+    'attack': { 'attack': 'Strength', 'defense': 'AC' },
+    'hit': { 'base': '2[W]', modifier: 'Strength,Wisdom' }
+}
+{
+    'name': 'Shielding Smite',
+    'type': 'encounter',
+    'flavor-text': "A translucent golden shield forms in front of a nearby ally as you attack with your weapon.",
+    'requirements': { 'level': 1, 'class': 'Paladin' },
+    'powerSource': 'Divine',
+    'accessories': [ { 'name': 'Weapon' } ],
+    'actionType': 'Standard',
+    'range': 'Melee weapon',
+    'target': 'One creature',
+    'attack': { 'attack': 'Charisma', 'defense': 'AC' },
+    'hit': { 'base': '2[W]', modifier: 'Charisma' },
+    'effect': 'Until the end of your next turn, one ally within 5 squares of you gains a power bonus to AC equal to your Wisdom modifier.'
+}
+{
+    'name': 'On Pain of Death',
+    'type': 'daily',
+    'flavor-text': "You invoke a prayer that wracks your foe with terrible pain and causes further pain whenever he makes an attack.",
+    'requirements': { 'level': 1, 'class': 'Paladin' },
+    'powerSource': 'Divine',
+    'accessories': [ { 'name': 'Implement' } ],
+    'actionType': 'Standard',
+    'range': 'Ranged 5',
+    'target': 'One creature',
+    'attack': { 'attack': 'Charisma', 'defense': 'Will' },
+    'hit': { 'base': '3d8', 'modifier': 'Charisma', 'bonus': 'Once per round, the target takes 1d8 damage after making any attacks on its turn (save ends)' },
+    'miss': 'Half damage.  Once per round, the target takes 1d4 damage after making any attacks on its turn (save ends)'
+}
+{
+    'name': "Paladin's Judgment",
+    'type': 'daily',
+    'flavor-text': "Your melee attack punishes your enemy and heals an ally.",
+    'requirements': { 'level': 1, 'class': 'Paladin' },
+    'powerSource': 'Divine',
+    'effectType': 'Healing',
+    'accessories': [ { 'name': 'Weapon' } ],
+    'actionType': 'Standard',
+    'range': 'Melee weapon',
+    'target': 'One creature',
+    'attack': { 'attack': 'Strength', 'defense': 'AC' },
+    'hit': { 'base': '3[W]', 'modifier': 'Strength', 'bonus': 'One ally within 5 squares of you can spend a healing surge.' },
+    'miss': 'One ally within 5 squares of you can spend a healing surge.'
+}
+{
+    'name': "Radiant Delirium",
+    'type': 'daily',
+    'flavor-text': "You engulf your enemy in searing ribbons of radiance.",
+    'requirements': { 'level': 1, 'class': 'Paladin' },
+    'powerSource': 'Divine',
+    'damageType': 'Radiant',
+    'accessories': [ { 'name': 'Implement' } ],
+    'actionType': 'Standard',
+    'range': 'Ranged 5',
+    'target': 'One creature',
+    'attack': { 'attack': 'Charisma', 'defense': 'Reflex' },
+    'hit': { 'base': '3d8', 'modifier': 'Charisma', 'bonus': 'The target is dazed until the end of your next turn.  In addition, the target takes a -2 penalty to AC (save ends).' },
+    'miss': 'Half damage, and the target is dazed until the end of your next turn.'
+}
+{
+    'name': "Dragon Breath",
+    'type': 'encounter',
+    'racial': true,
+    'flavorText': "As you open your mouth with a roar, the deadly power of your draconic kin blasts forth to engulf your foes.",
+    'requirements': { 'level': 1, 'race': 'Dragonborn' },
+    'damageType': 'Acid, Cold, Fire, Lightning, or Poison',
+    'actionType': 'Minor',
+    'range': 'Close blast 3',
+    'target': 'All creatures in area',
+    'attack': { 'attack': 'Strength + 2, Constitution + 2, or Dexterity + 2', 'defense': 'Reflex' },
+    'hit': { 'base': '1d6', 'modifier': 'Constitution' },
+    'special': "When you create your character, choose Strength, Constitution, or Dexterity as the ability score you use when making attack rolls with this power.  You also choose the power's damage type: acid, cold, fire, lightning, or poison.  These two choices remain throughout your character's life and do not change the power's other effects."
+}
+{
+    'name': "Divine Challenge",
+    'type': 'at-will',
+    'feature': true,
+    'flavorText': "You boldly confront a nearby enemy, searing it with divine light if it ignores your challenge.",
+    'requirements': { 'level': 1, 'race': 'Paladin' },
+    'damageType': 'Radiant',
+    'actionType': 'Minor',
+    'range': 'Close burst 5',
+    'target': 'One creature in burst',
+    'effect': "You mark the target. The target remains marked until you use this power against another target, or if you fail to engage the target (see below). A creature can be subject to only one mark at a time. A new mark supersedes a mark that was already in place.  While a target is marked, it takes a -2 penalty to attack rolls for any attack that doesn't include you as a target. Also, it takes radiant damage equal to 3 + your Charisma modifier the first time it makes an attack that doesn't include you as a target before the start of your next turn. On your turn, you must engage the target you challenged or challenge a different target. To engage the target, you must either attack it or end your turn adjacent to it. If none of these events occur by the end of your turn, the marked condition ends and you can't use divine challenge on your next turn.  You can use divine challenge once per turn.",
+    'special': "Even though this ability is called a challenge, it doesn't rely on the intelligence or language ability of the target. It's a magical compulsion that affects the creature's behavior, regardless of the creature's nature. You can't place a divine challenge on a creature that is already affected by your or another character's divine challenge."
+}
+{
+    'name': "Lay on Hands",
+    'type': 'at-will',
+    'racial': true,
+    'flavorText': "Your divine touch instantly heals wounds.",
+    'requirements': { 'level': 1, 'race': 'Paladin' },
+    'actionType': 'Minor',
+    'range': 'Melee touch',
+    'target': 'One creature',
+    'effect': "You spend a healing surge but regain no hit points.  Instead, the target regains hit points as if it had spent a healing surge.  You must have at least one healing surge remaining to use this power.",
+    'special': "You can use this power a number of times per day equal to your wisdom modifier (minimum 1), but only once per round."
+}

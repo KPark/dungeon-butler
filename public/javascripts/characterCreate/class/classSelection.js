@@ -49,7 +49,7 @@ dungeonButlerModule.factory('classSelection', ['$window', function (activeCharac
         activeCharacter.hp = hp;
         activeCharacter.healingSurges = healingSurges;
     }
-    function setClassBuildPowers(activeCharacter, build) {
+    function setClassBuildPowers(activeCharacter, build, selectedClass) {
         var i;
         for(i = activeCharacter.powers.length - 1; i >= 0; i--) {
             if (activeCharacter.powers[i].type !== 'Class') {
@@ -60,6 +60,8 @@ dungeonButlerModule.factory('classSelection', ['$window', function (activeCharac
             var power = build.powers[i];
             activeCharacter.powers.push({ name: power.name });
         }
+        activeCharacter.powers = activeCharacter.powers.concat(selectedClass.powers);
+        console.log(activeCharacter.powers);
     }
 
     return(function(activeCharacter, build, selectedClass) {
@@ -67,7 +69,7 @@ dungeonButlerModule.factory('classSelection', ['$window', function (activeCharac
         activeCharacter.class = selectedClass.name;
         setClassBuildSkills(activeCharacter, build);
         setClassBuildAbilityScores(activeCharacter, build, selectedClass);
-        setClassBuildPowers(activeCharacter, build);
+        setClassBuildPowers(activeCharacter, build, selectedClass);
         activeCharacter.feats = build.feats;
         for (var i = 0; i < selectedClass.defenseBonus.length; i++) {
             var defense = selectedClass.defenseBonus[i];

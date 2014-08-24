@@ -28,6 +28,7 @@ exports.saveCharacterTemplate = function(db) {
     return (function(req, res) {
         var character = req.body;
         var collection = db.get("characters");
+        console.log(character);
         if (character._id) {
             collection.update({ "_id": character._id}, character, {}, function(e) {
                 if (e != null) {
@@ -45,9 +46,31 @@ exports.saveCharacterTemplate = function(db) {
                     console.log(character);
                     res.send("Unexpected Error");
                 } else {
+                    console.log("Save successful: " + docs);
                     res.send(docs);
                 }
             });
         }
+    });
+};
+
+exports.deleteCharacter = function(db) {
+    return (function(req, res) {
+        var character = req.body;
+        console.log(character);
+        var collection = db.get("characters");
+        collection.remove(character, function(err, result) {
+            res.send({});
+        })
+    });
+};
+
+exports.getPowers = function(db) {
+    return (function(req, res) {
+        var powersFilter = req.body;
+        var collection = db.get("dndv4_powers");
+        collection.find({ "name": { $in: powersFilter }}, { "sort": { "type": 1, "name": 2 } }, function (e, docs) {
+            res.send(docs);
+        });
     });
 };

@@ -39,6 +39,8 @@ app.post('/getClasses', characterCreate.getClasses(db));
 app.post('/getCharacterList', characters.getCharacterList(db));
 app.post('/getCharacter', characters.getCharacter(db));
 app.post('/saveCharacterTemplate', characterCreate.saveCharacterTemplate(db));
+app.post('/deleteCharacter', characterCreate.deleteCharacter(db));
+app.post('/getPowers', characterCreate.getPowers(db));
 
 app.get('/characters', characters.characters);
 app.get('/characterCreate', characterCreate.characterCreate);

@@ -27,21 +27,24 @@ dungeonButlerApp.config(['$routeProvider', '$locationProvider',
 
 var dungeonButlerModule = angular.module('dungeon-butler-controllers', []);
 
-dungeonButlerModule.controller('character-controller', ['$scope', '$routeParams', '$rootScope', '$http', '$location', '$cookies',
-        function ($scope, $routeParams, $rootScope, $http, $location, $cookies) {
+dungeonButlerModule.controller('character-controller', ['$scope', '$routeParams', '$rootScope', '$http', '$location', '$cookies', '$route',
+        function ($scope, $routeParams, $rootScope, $http, $location, $cookies, $route) {
             if ($cookies.loggedInUser != "No User") {
                 $http.post('/getCharacterList', { "userId": $cookies.loggedInUser }).success(function (data) {
                     $scope.characterTemplates = data;
                 })
             }
             $scope.newCharacter = function () {
+                $rootScope.activeCharacter = null;
                 $location.path('/characterCreate/' + $routeParams.username);
             };
             $scope.showCharacter = function (characterId) {
                 $location.path('/characterCreate/' + characterId);
             };
             $scope.deleteCharacter = function (characterId) {
-                alert("Not implemented yet.");
+                $http.post('/deleteCharacter', {_id: characterId}).success(function () {
+                    $route.reload();
+                });
             };
         }
     ]

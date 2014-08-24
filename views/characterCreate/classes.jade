@@ -15,8 +15,10 @@ div(ng-controller="class-controller" style="height: 100%;")
                 tr(style="overflow: auto; vertical-align: top;")
                     table(style="width: 100%")
                         tr
-                            td(colspan=2)
+                            td
                                 h2.ui-widget-header {{currentClass.name}}
+                            td
+                                h2.ui-widget-header Role: {{currentClass.role}}
                         tr
                             td(style="vertical-align: top;")
                                 h3.ui-widget-header Builds

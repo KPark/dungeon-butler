@@ -40,3 +40,15 @@ body {
     height: 100%;
     overflow: auto;
 }
+
+.at-will {
+    background-color: green;
+}
+
+.encounter {
+    background-color: red;
+}
+
+.daily {
+    background-color: blue;
+}

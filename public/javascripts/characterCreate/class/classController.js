@@ -9,7 +9,7 @@ dungeonButlerModule.controller('class-controller', ['$scope', '$rootScope', '$ht
             if ($rootScope.activeCharacter.class) {
                 for (var i = 0; i < $scope.classes.length; i++) {
                     if ($scope.classes[i].name == $rootScope.activeCharacter.class) {
-                        $scope.currentRace = $scope.classes[i];
+                        $scope.currentClass = $scope.classes[i];
                     }
                 }
             } else {

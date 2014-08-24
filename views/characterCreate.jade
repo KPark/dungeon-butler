@@ -8,7 +8,7 @@ div(ng-controller="character-create-controller", ng-init="init()" style="width: 
             td
                 jq-button(ng-click="currentTab = 'cc.races.html'" id="race-button" value="Race")
                 jq-button(ng-click="currentTab = 'cc.classes.html'" id="race-button" value="Class")
-                jq-button(ng-click="currentTab = 'cc.summary.html'" id="race-button" value="Summary")
+                jq-button(ng-click="getSummary()" id="race-button" value="Summary")
         tr
             td#characterSummary(class="ui-widget-content")
                 div

@@ -42,7 +42,26 @@ table(style="width: 100%;")
                         td.ui-state-active(ng-bind="getBloodied()")
                         td.ui-state-active(ng-bind="getSurgeValue()")
                         td.ui-state-active {{activeCharacter.healingSurges}}
-        td
+            .ui-widget-header Powers
+            div(ng-repeat="power in powers" style="margin-top: 1em;")
+                table(ng-class="power.type" style="width: 100%;")
+                    tr
+                        td {{power.name}} ({{power.type}})
+                        td(style="text-align: right;" ng-show="power.requirements.class") {{power.requirements.class}} Level {{power.requirements.level}}
+                        td(style="text-align: right;" ng-show="power.requirements.race") {{power.requirements.race}} Level {{power.requirements.level}}
+                .ui-state-active(style="text-decoration: italic;") {{power.flavorText}}
+                div.ui-state-default
+                    span(ng-show="power.powerSource") {{power.powerSource}}&nbsp;&diams;
+                    span(ng-show="power.damageType") &nbsp;{{power.damageType}}
+                    span(ng-repeat="accessory in power.accessories") &nbsp;{{accessory.name}}
+                .ui-state-active {{power.actionType}} Action, Range: {{power.range}}
+                .ui-state-default Target: {{power.target}}
+                .ui-state-active(ng-show="power.attack") Attack: {{power.attack.attack}} vs. {{power.attack.defense}}.  {{power.attack.bonus}}
+                .ui-state-default(ng-show="power.hit") Hit: {{power.hit.base}} + {{power.hit.modifier}} modifier {{power.damageType}} damage.  {{power.hit.bonus}}
+                .ui-state-active(ng-show="power.miss") Miss: {{power.miss}}
+                .ui-state-default(ng-show="power.effect") Effect: {{power.effect}}
+                .ui-state-active(ng-show="power.special") Special: {{power.special}}
+        td(style="vertical-align: top;")
             table(style="width: 100%")
                 tbody
                     tr

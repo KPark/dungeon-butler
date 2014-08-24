@@ -2,8 +2,9 @@ div(ng-controller="character-controller" style="width: 100%; height: 100%;" clas
     div(style="text-align: center; margin-top: 1em;" class='ui-widget-header')
         span(style="margin-right: 1em;") Characters
         jq-button(ng-click="newCharacter()" id="new-character-button" value="+ New")
-    div(ng-repeat="t in characterTemplates" class='ui-state-hover ui-corner-all' style='margin: 0.5%; padding: 1em; cursor: pointer; width: 46%; display: inline-block;' ng-click="showCharacter(t._id)" hover-class='ui-state-active')
-        div(style="width: 100%; display: table;")
-            div(style="display: table-cell;") {{t.name}}, {{t.race}} {{t.class}}
-            div(style="display: table-cell; text-align: right;")
-                jq-button(ng-click="deleteCharacter(t._id)" id="delete-button" value="Delete")
+    div(ng-repeat="t in characterTemplates" class='ui-state-hover ui-corner-all' style='margin: 0.5%; padding: 1em; cursor: pointer; width: 46%; display: inline-block;' hover-class='ui-state-active')
+        table(style="width: 100%;")
+            tr
+                td(style="width: 100%;" ng-click="showCharacter(t._id)") {{t.name}}, {{t.race}} {{t.class}}
+                td(style="text-align: right;")
+                    jq-button(ng-click="deleteCharacter(t._id)" id="delete-button" value="Delete")

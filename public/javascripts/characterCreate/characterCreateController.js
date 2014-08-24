@@ -20,9 +20,15 @@ dungeonButlerModule.controller('character-create-controller', ['$scope', '$rootS
                 { "name": "Thievery", score: "Dexterity" }
             ];
 
+            $scope.powers = [];
+
             $scope.resetCharacter = function () {
+                var oldId = null;
+                if ($rootScope.activeCharacter) {
+                    $rootScope.activeCharacter._id;
+                }
                 $rootScope.activeCharacter = {
-                    userId: $routeParams.userId,
+                    userId: $rootScope.loggedInUser,
                     name: "New Character",
                     level: 1,
                     hp: 0,
@@ -40,8 +46,8 @@ dungeonButlerModule.controller('character-create-controller', ['$scope', '$rootS
                     skills: [ ],
                     feats: [ ]
                 };
-                if ($routeParams.characterId) {
-                    $rootScope.activeCharacter._id = $routeParams.characterId;
+                if (oldId) {
+                    $rootScope.activeCharacter._id = oldId;
                 }
                 $rootScope.currentTab = 'cc.races.html';
             };
@@ -72,7 +78,7 @@ dungeonButlerModule.controller('character-create-controller', ['$scope', '$rootS
             };
 
             $scope.goToCharacterSelect = function () {
-                $location.path('/characters/' + $routeParams.userId);
+                $location.path('/characters');
             };
 
             $scope.getAbilityScore = function (abilityScore) {
@@ -101,25 +107,40 @@ dungeonButlerModule.controller('character-create-controller', ['$scope', '$rootS
                 return Math.max($scope.getAbilityModifier(score1), $scope.getAbilityModifier(score2));
             };
 
-            if (!$rootScope.currentTab) {
-                $rootScope.currentTab = 'cc.races.html';
-            }
-            if ($routeParams.characterId != null) {
-                $http.post('/getCharacter', {'id': $routeParams.characterId}).success(function (characterData) {
-                    $rootScope.activeCharacter = characterData;
-                });
-            } else {
-                $scope.resetCharacter();
-            }
+            $(document).ready(function() {
+                if (!$rootScope.currentTab) {
+                    $rootScope.currentTab = 'cc.races.html';
+                }
+                if ($routeParams.characterId != null && $routeParams.characterId != 'undefined') {
+                    $http.post('/getCharacter', {'id': $routeParams.characterId}).success(function (characterData) {
+                        $rootScope.activeCharacter = characterData;
+                    });
+                } else {
+                    $scope.resetCharacter();
+                }
+            });
 
             $scope.saveCharacter = function () {
+                console.log($rootScope.activeCharacter);
                 $http.post('/saveCharacterTemplate', $rootScope.activeCharacter).success(function (data) {
                     alert("Successfully saved character.");
-                    $location.path('/characterCreate/' + $routeParams.userId + "/" + data._id);
+                    $location.path('/characterCreate/' + data._id);
                 }).error(function () {
                     alert("An unexpected error occurred... Need better error handling, but talk to Matt.");
                 });
             };
+
+            $scope.getSummary = function () {
+                var powers = [];
+                for (var i = 0; i < $rootScope.activeCharacter.powers.length; i++) {
+                    powers.push($rootScope.activeCharacter.powers[i].name);
+                }
+                $http.post('/getPowers', powers).success(function (powers) {
+                    $scope.powers = powers;
+                    console.log($scope.powers);
+                    $scope.currentTab = 'cc.summary.html';
+                });
+            }
         }
     ]
 );
