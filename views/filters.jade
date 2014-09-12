@@ -1,0 +1,39 @@
+div.ui-widget(ng-controller="power-filter-controller" ng-init="init()" style="width: 100%; height: 100%;")
+    table(style="width: 100%; height: 100%")
+        tbody(style="width: 100%; height: 100%")
+            tr
+                td.ui-widget-content(style="vertical-align: top; height: 100%; width: 20em;")
+                    div
+                        table(style="width: 100%;")
+                            tr(ng-repeat="filter in fields")
+                                td
+                                    label(ng-bind="filter.name")
+                                td
+                                    input(ng-show="filter.inputValues == 'String'" ng-model="filter.inputValue" style="width: 100%;")
+                                    input(ng-show="filter.inputValues == 'Integer'" ng-model="filter.inputValue" style="width: 100%;")
+                                    input(type="checkbox" ng-show="filter.inputValues == 'Boolean'" ng-model="filter.inputValue" style="width: 100%;")
+                                    select(ng-show="isArray(filter)" ng-model="filter.inputValue" ng-options="value.name as value.name for value in filter.inputValues" style="width: 100%;")
+                                        option(value="")
+                            tr
+                                td(colspan=2)
+                                    jq-button(ng-click="findPowers()" ng-bind="'Search'")
+                td.ui-widget-content(style="vertical-align: top; height: 100%; overflow: auto;")
+                    div(style="height: 100%; overflow: auto;")
+                        div(ng-repeat="power in powers" style="width: 45%; display: inline-block; padding: 1em; vertical-align: top;")
+                            table(ng-class="power.type" style="width: 100%;")
+                                tr
+                                    td {{power.name}} ({{power.type}})
+                                    td(style="text-align: right;" ng-show="power.requirements.class") {{power.requirements.class}} Level {{power.requirements.level}}
+                                    td(style="text-align: right;" ng-show="power.requirements.race") {{power.requirements.race}} Level {{power.requirements.level}}
+                            .ui-state-active(style="text-decoration: italic;") {{power.flavorText}}
+                            div.ui-state-default
+                                span(ng-show="power.powerSource") {{power.powerSource}}&nbsp;&diams;
+                                span(ng-show="power.damageType") &nbsp;{{power.damageType}}
+                                span(ng-repeat="accessory in power.accessories") &nbsp;{{accessory.name}}
+                            .ui-state-active {{power.actionType}} Action, Range: {{power.range}}
+                            .ui-state-default Target: {{power.target}}
+                            .ui-state-active(ng-show="power.attack") Attack: {{power.attack.attack}} vs. {{power.attack.defense}}.  {{power.attack.bonus}}
+                            .ui-state-default(ng-show="power.hit") Hit: {{power.hit.base}} + {{power.hit.modifier}} modifier {{power.damageType}} damage.  {{power.hit.bonus}}
+                            .ui-state-active(ng-show="power.miss") Miss: {{power.miss}}
+                            .ui-state-default(ng-show="power.effect") Effect: {{power.effect}}
+                            .ui-state-active(ng-show="power.special") Special: {{power.special}}

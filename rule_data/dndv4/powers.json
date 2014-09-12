@@ -156,7 +156,7 @@
     'racial': true,
     'flavorText': "As you open your mouth with a roar, the deadly power of your draconic kin blasts forth to engulf your foes.",
     'requirements': { 'level': 1, 'race': 'Dragonborn' },
-    'damageType': 'Acid, Cold, Fire, Lightning, or Poison',
+    'damageType': 'Acid,Cold,Fire,Lightning,Poison',
     'actionType': 'Minor',
     'range': 'Close blast 3',
     'target': 'All creatures in area',

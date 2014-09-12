@@ -21,5 +21,11 @@ dungeonButlerModule.controller('logout-controller', ['$scope', '$rootScope', '$h
                 $rootScope.loggedInUser = undefined;
                 $location.path('/');
             };
+            $scope.showPowerSearch = function () {
+                $location.path('/Powers');
+            };
+            $scope.showCharacters = function () {
+                $location.path('/characters');
+            }
         }]
 );

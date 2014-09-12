@@ -6,6 +6,10 @@ exports.characterCreate = function(req, res){
     res.render('characterCreate', { title: 'Character Creator' });
 };
 
+exports.powerSearch = function(req, res) {
+    res.render('filters', { title: 'Power Search' });
+}
+
 exports.getRaces = function(db) {
     return (function(req, res) {
         var collection = db.get("dndv4_races");
@@ -70,6 +74,17 @@ exports.getPowers = function(db) {
         var powersFilter = req.body;
         var collection = db.get("dndv4_powers");
         collection.find({ "name": { $in: powersFilter }}, { "sort": { "type": 1, "name": 2 } }, function (e, docs) {
+            res.send(docs);
+        });
+    });
+};
+
+exports.getPowersWithCriteria = function(db) {
+    return (function(req, res) {
+        var powersFilter = req.body;
+        console.log(powersFilter);
+        var collection = db.get("dndv4_powers");
+        collection.find(powersFilter, function (e, docs) {
             res.send(docs);
         });
     });

@@ -22,6 +22,10 @@ dungeonButlerApp.config(['$routeProvider', '$locationProvider',
             .when('/characterCreate/:userId', {
                 templateUrl: 'characterCreate',
                 controller: 'character-create-controller'
+            })
+            .when("/Powers", {
+                templateUrl: 'powerSearch',
+                controller: 'power-filter-controller'
             });
     }]);
 
