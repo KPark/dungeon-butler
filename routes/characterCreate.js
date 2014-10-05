@@ -89,3 +89,32 @@ exports.getPowersWithCriteria = function(db) {
         });
     });
 };
+
+exports.savePower = function(db) {
+    return (function(req, res) {
+        var power = req.body;
+        var collection = db.get("dndv4_powers");
+        if (power._id) {
+            collection.update({ "_id": power._id}, power, {}, function(e) {
+                if (e != null) {
+                    console.log("An error occurred while saving the power: " + e);
+                    console.log(power);
+                    res.send("Unexpected Error");
+                } else {
+                    res.send({'_id': power._id});
+                }
+            });
+        } else {
+            collection.insert(power, {}, function(e, docs) {
+                if (e != null) {
+                    console.log("An error occurred while inserting the power: " + e);
+                    console.log(power);
+                    res.send("Unexpected Error");
+                } else {
+                    console.log("Save successful: " + docs);
+                    res.send(docs);
+                }
+            });
+        }
+    });
+}
